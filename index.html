@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boca da Encumeada — Snack Bar Restaurante, Serra de Água, Madeira</title>
+<meta name="description" content="Snack Bar Restaurante Boca Da Encumeada — a family-run mountain-pass restaurant in Serra de Água, Madeira. Espetada, poncha, and a panoramic view over both coasts. Open daily 8:00–20:00, closed Mondays.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: oklch(96.5% 0.015 80);
+    --cream-2: oklch(93% 0.02 75);
+    --ink: oklch(22% 0.02 55);
+    --ink-soft: oklch(38% 0.03 55);
+    --terracotta: oklch(56% 0.15 40);
+    --terracotta-dark: oklch(44% 0.14 38);
+    --pine: oklch(33% 0.06 155);
+    --gold: oklch(75% 0.12 80);
+    --paper: oklch(98.5% 0.008 80);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); font-family: 'Karla', system-ui, sans-serif; color: var(--ink); text-wrap: pretty; }
+  h1, h2, h3, .display { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: 0.01em; }
+  a { color: var(--terracotta-dark); text-decoration: none; }
+  a:hover { color: var(--terracotta); }
+  img { max-width: 100%; }
+  .eyebrow { font-family: 'Karla', sans-serif; text-transform: uppercase; letter-spacing: 0.22em; font-size: 12px; font-weight: 700; color: var(--terracotta-dark); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 2px; font-family: 'Karla', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; border: 1.5px solid transparent; cursor: pointer; }
+  .btn-solid { background: var(--terracotta); color: var(--paper); border-color: var(--terracotta); }
+  .btn-solid:hover { background: var(--terracotta-dark); color: var(--paper); }
+  .btn-outline { background: transparent; color: var(--paper); border-color: color-mix(in oklch, var(--paper) 60%, transparent); }
+  .btn-outline:hover { background: color-mix(in oklch, var(--paper) 14%, transparent); color: var(--paper); }
+  .btn-outline-dark { background: transparent; color: var(--ink); border-color: color-mix(in oklch, var(--ink) 30%, transparent); }
+  .btn-outline-dark:hover { background: color-mix(in oklch, var(--ink) 6%, transparent); }
+  .lang-btn { background: none; border: none; font-family: 'Karla', sans-serif; font-size: 13px; cursor: pointer; padding: 6px 4px; font-weight: 500; color: var(--ink-soft); opacity: 0.75; }
+  .lang-btn.active { font-weight: 700; color: var(--terracotta-dark); text-decoration: underline; text-underline-offset: 3px; opacity: 1; }
+  .section-pad { padding: 96px 48px; }
+  .divider { width: 56px; height: 2px; background: var(--terracotta); border: none; margin: 20px 0 28px; }
+  .hero-band { position: relative; width: 100%; aspect-ratio: 2.64 / 1; min-height: 460px; max-height: 78vh; overflow: hidden; }
+  .panorama-band { position: relative; width: 100%; aspect-ratio: 2.64 / 1; min-height: 320px; max-height: 70vh; overflow: hidden; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  @media (max-width: 860px) {
+    .section-pad { padding: 64px 24px; }
+    .stack-mobile { flex-direction: column !important; }
+    .hero-h1 { font-size: 38px !important; }
+    .hero-band { aspect-ratio: auto; height: 290px; min-height: 0; max-height: none; }
+    .hero-subtitle { display: none !important; }
+    .panorama-band { aspect-ratio: 1.6 / 1; height: auto; min-height: 260px; max-height: 55vh; }
+    .grid-3 { grid-template-columns: 1fr !important; }
+    .gallery-grid { grid-template-columns: 1fr !important; }
+    .gallery-grid img { height: 300px !important; }
+    .nav-links { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: color-mix(in oklch, var(--cream) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid color-mix(in oklch, var(--ink) 10%, transparent);">
+  <div class="display" style="font-size: 22px; color: var(--pine); font-weight: 600;">Boca da Encumeada</div>
+  <div class="nav-links" style="display: flex; align-items: center; gap: 32px; font-size: 14px; font-weight: 600; letter-spacing: 0.03em;">
+    <a href="#historia" style="color: var(--ink);" data-i18n="navPass">The Pass</a>
+    <a href="#ementa" style="color: var(--ink);" data-i18n="navMenu">Menu</a>
+    <a href="#opinioes" style="color: var(--ink);" data-i18n="navReviews">Reviews</a>
+    <a href="#visitar" style="color: var(--ink);" data-i18n="navVisit">Visit</a>
+  </div>
+  <div style="display: flex; align-items: center; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 2px;">
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      <span style="color: color-mix(in oklch, var(--ink) 30%, transparent); font-size: 12px;">/</span>
+      <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
+    </div>
+    <a href="tel:+351291952319" class="btn btn-outline-dark" style="padding: 10px 20px; font-size: 13px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +351 291 952 319
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero-band" style="display: flex; align-items: flex-end;">
+  <img src="images/hero.jpg" alt="Panoramic view over the mountains from the terrace at Boca da Encumeada" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(0deg, oklch(15% 0.02 55 / 0.85) 0%, oklch(20% 0.03 55 / 0.32) 50%, oklch(25% 0.03 100 / 0.05) 100%);"></div>
+  <div style="position: relative; padding: 0 48px 40px; max-width: 900px;">
+    <div class="eyebrow" style="color: var(--gold);" data-i18n="heroEyebrow">Serra de Água · Madeira · 1000m above the sea</div>
+    <h1 class="display hero-h1" style="color: var(--paper); font-size: 60px; line-height: 1.04; margin: 14px 0 0;">Boca da Encumeada</h1>
+    <p class="hero-subtitle" style="color: color-mix(in oklch, var(--paper) 92%, transparent); font-size: 17px; line-height: 1.55; max-width: 540px; margin: 16px 0 26px;" data-i18n="heroSubtitle">A family table perched on Madeira's most dramatic mountain pass — espetada off the grill, poncha in hand, and a view over both coasts at once.</p>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+      <a href="#visitar" class="btn btn-solid" data-i18n="ctaVisit">Plan your visit</a>
+      <a href="#ementa" class="btn btn-outline" data-i18n="ctaMenu">See the menu</a>
+    </div>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; padding: 22px 48px; background: var(--pine); color: var(--paper);">
+  <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    <span data-i18n="hoursStrip">Open daily 8:00–20:00 · Closed Mondays</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;">
+    <span style="color: var(--gold); letter-spacing: 2px; font-size: 16px;">★★★★★</span>
+    <span data-i18n="ratingStrip">4.5 · 41 reviews on TripAdvisor</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div style="padding: 48px 48px 8px; text-align: center;">
+  <div class="wrap" style="max-width: 720px;">
+    <div class="eyebrow" style="justify-content: center;" data-i18n="aboutEyebrow">About Us</div>
+    <p style="font-size: 17px; line-height: 1.75; color: var(--ink-soft); margin: 14px 0 0;" data-i18n="aboutBody">A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Poncha is what we're known for — traditional, muddled to order, the proper way — though plenty of visitors say the espetada and the view give it a run for its money. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div id="historia" class="section-pad wrap">
+  <div class="stack-mobile" style="display: flex; gap: 72px; align-items: center;">
+    <div style="flex: 1.1; min-width: 0;">
+      <div class="eyebrow" data-i18n="storyEyebrow">The Pass</div>
+      <h2 class="display" style="font-size: 44px; margin: 14px 0 0; color: var(--pine); line-height: 1.1;" data-i18n="storyTitle">Where the north coast meets the south</h2>
+      <hr class="divider">
+      <p style="font-size: 17px; line-height: 1.75; color: var(--ink-soft); margin: 0 0 18px;" data-i18n="storyP1">Boca da Encumeada is the mountain pass where Madeira's two coastlines come into view at once — laurisilva forest, a UNESCO World Heritage woodland, rolling away on every side. It's a natural stopping point for anyone crossing the island, and the trailhead for some of Madeira's best-loved levada walks, including the Vereda da Encumeada and the Caminho do Pináculo e Folhadal.</p>
+      <p style="font-size: 17px; line-height: 1.75; color: var(--ink-soft); margin: 0;" data-i18n="storyP2">We've set up right at that viewpoint — a terrace of wooden tables under the awning, the mountains dropping away on both sides, and a kitchen turning out the kind of food that makes people pull over a second time on the way back down.</p>
+    </div>
+    <div style="flex: 1; min-width: 0;">
+      <img src="images/terrace.jpg" alt="Diners at the terrace tables overlooking the mountains" style="width: 100%; height: 460px; object-fit: cover; border-radius: 2px; box-shadow: 0 24px 48px -18px oklch(20% 0.03 55 / 0.35);">
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<div id="ementa" class="section-pad" style="background: var(--cream-2);">
+  <div class="wrap">
+    <div style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
+      <div class="eyebrow" style="justify-content: center;" data-i18n="menuEyebrow">On the Grill</div>
+      <h2 class="display" style="font-size: 44px; margin: 14px 0 0; color: var(--pine);" data-i18n="menuTitle">Simple, honest Madeiran food</h2>
+      <hr class="divider" style="margin: 20px auto 0;">
+      <p style="font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin: 18px 0 0;" data-i18n="menuIntro">No printed menu online yet — call ahead for today's specials and prices. Here's what regulars come back for.</p>
+    </div>
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
+      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M4 21V9a2 2 0 0 1 2-2h1"/><path d="M12 21V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v15"/><path d="M20 21v-9a2 2 0 0 0-2-2h-1"/><path d="M2 21h20"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card1Title">Espetada</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card1Body">Skewered beef, grilled over the open fire the traditional way. Reviewers have called it the best on the island — we're not going to argue.</p>
+      </div>
+      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M8 21h8"/><path d="M12 21v-5"/><path d="M5 3h14l-1.5 9a5 5 0 0 1-5 4h-1a5 5 0 0 1-5-4z"/><path d="M5 3l-1 3"/><path d="M19 3l1 3"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card2Title">Fresh Poncha</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card2Body">Madeira's traditional muddled spirit, made to order — the way to toast a mountain view. Fresh passion fruit juice too, for the non-drinkers.</p>
+      </div>
+      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><rect x="3" y="11" width="14" height="8" rx="1"/><path d="M17 13h2a2 2 0 0 1 0 4h-2"/><path d="M6 3v3M10 3v3M14 3v3"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card3Title">Pepper Steak & Fondue</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card3Body">A hearty pepper steak, and a cheese fondue that keeps coming up in reviews — good sharing food after a levada walk.</p>
+      </div>
+      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card4Title">Sandwiches & Soups</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card4Body">Chicken and steak sandwiches, tomato and fish soup — simple, generous, made for hikers coming off the trail hungry.</p>
+      </div>
+      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card5Title">Galão & Homemade Cake</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card5Body">Coffee done properly — galão and café chinesa — next to a slice of homemade cake. Best excuse to linger over the view.</p>
+      </div>
+      <div style="background: var(--pine); padding: 34px 30px; border-radius: 2px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 class="display" style="font-size: 22px; margin: 0 0 10px; color: var(--paper);" data-i18n="card6Title">Ask about today's specials</h3>
+        <p style="font-size: 14px; line-height: 1.6; color: color-mix(in oklch, var(--paper) 85%, transparent); margin: 0 0 18px;" data-i18n="card6Body">Menu changes with the season and the catch. Give us a call before you make the drive up.</p>
+        <a href="tel:+351291952319" class="btn btn-outline" style="align-self: flex-start; padding: 11px 22px; font-size: 14px;" data-i18n="card6Btn">Call +351 291 952 319</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div style="padding: 0 48px;">
+  <div class="gallery-grid" style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 0;">
+    <img src="images/railing.jpg" alt="View along the terrace railing towards the mountains" style="width: 100%; height: 420px; object-fit: cover;">
+    <img src="images/storefront.jpg" alt="The Boca da Encumeada storefront with cafés TOFA signage" style="width: 100%; height: 420px; object-fit: cover;">
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div id="opinioes" class="section-pad" style="background: var(--pine); color: var(--paper);">
+  <div class="wrap">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 48px;">
+      <div>
+        <div class="eyebrow" style="color: var(--gold);" data-i18n="reviewsEyebrow">What Travellers Say</div>
+        <h2 class="display" style="font-size: 44px; margin: 14px 0 0; color: var(--paper);" data-i18n="reviewsTitle">Straight off Google & TripAdvisor</h2>
+      </div>
+      <div style="text-align: right;">
+        <div style="color: var(--gold); font-size: 24px; letter-spacing: 3px;">★★★★★</div>
+        <div style="font-size: 15px; color: color-mix(in oklch, var(--paper) 85%, transparent); margin-top: 4px;" data-i18n="ratingCaption">4.5 out of 5 · 41 reviews</div>
+      </div>
+    </div>
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+      <div style="background: color-mix(in oklch, var(--paper) 8%, transparent); padding: 28px; border-radius: 2px;">
+        <div style="color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px;">★★★★★</div>
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">"Best espetada I have ever had. Cheese fondue is excellent."</p>
+        <div style="font-size: 13px; font-weight: 700; color: color-mix(in oklch, var(--paper) 75%, transparent);">Mark R. · TripAdvisor</div>
+      </div>
+      <div style="background: color-mix(in oklch, var(--paper) 8%, transparent); padding: 28px; border-radius: 2px;">
+        <div style="color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px;">★★★★★</div>
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">"Very nice place to stay for a moment when you are thirsty and hungry. Great tap beer, delicious food, friendly staff."</p>
+        <div style="font-size: 13px; font-weight: 700; color: color-mix(in oklch, var(--paper) 75%, transparent);">Borek H. · Czech Republic</div>
+      </div>
+      <div style="background: color-mix(in oklch, var(--paper) 8%, transparent); padding: 28px; border-radius: 2px;">
+        <div style="color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px;">★★★★★</div>
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">"Fresh &amp; delicious soups — and the fresh passion fruit juice was to die for!"</p>
+        <div style="font-size: 13px; font-weight: 700; color: color-mix(in oklch, var(--paper) 75%, transparent);">heftlee9901 · Miami</div>
+      </div>
+      <div style="background: color-mix(in oklch, var(--paper) 8%, transparent); padding: 28px; border-radius: 2px;">
+        <div style="color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px;">★★★★☆</div>
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">"Amazing sandwiches and great view."</p>
+        <div style="font-size: 13px; font-weight: 700; color: color-mix(in oklch, var(--paper) 75%, transparent);">Jo · United Kingdom</div>
+      </div>
+      <div style="background: color-mix(in oklch, var(--paper) 8%, transparent); padding: 28px; border-radius: 2px;">
+        <div style="color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 12px;">★★★★☆</div>
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 16px;">"The cake was homemade and delicious and the galão and chinesa coffees were very good."</p>
+        <div style="font-size: 13px; font-weight: 700; color: color-mix(in oklch, var(--paper) 75%, transparent);">James P. · United Kingdom</div>
+      </div>
+      <div style="background: color-mix(in oklch, var(--paper) 14%, transparent); padding: 28px; border-radius: 2px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+        <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 18px; color: var(--paper);" data-i18n="reviewCta">Read the rest of our reviews, or leave your own.</p>
+        <a href="https://www.tripadvisor.com/Restaurant_Review-g9761965-d14783508-Reviews-Boca_Da_Encumeada-Serra_de_Agua_Ribeira_Brava_Madeira_Madeira_Islands.html" class="btn btn-outline" style="font-size: 14px; padding: 11px 20px;" data-i18n="reviewLink">All reviews on TripAdvisor →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISIT -->
+<div id="visitar" class="section-pad wrap">
+  <div style="max-width: 640px;">
+    <div class="eyebrow" data-i18n="visitEyebrow">Find Us</div>
+    <h2 class="display" style="font-size: 44px; margin: 14px 0 0; color: var(--pine);" data-i18n="visitTitle">Visit the terrace</h2>
+    <hr class="divider">
+    <div style="display: flex; gap: 16px; margin-bottom: 26px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.8" style="flex-shrink: 0; margin-top: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Estrada Regional da Encumeada</div>
+        <div style="font-size: 15px; color: var(--ink-soft); line-height: 1.5;">Terraço dos Temperos, Serra de Água<br>Ribeira Brava, Madeira 9350-330, Portugal</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; margin-bottom: 26px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.8" style="flex-shrink: 0; margin-top: 2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">+351 291 952 319</div>
+        <div style="font-size: 15px; color: var(--ink-soft);" data-i18n="phoneCaption">Best to call ahead on weekends</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; margin-bottom: 34px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.8" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;" data-i18n="hoursTitle">Tuesday – Sunday, 8:00 – 20:00</div>
+        <div style="font-size: 15px; color: var(--ink-soft);" data-i18n="hoursCaption">Kitchen closes around 19:00 · Closed Mondays</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Snack+Bar+Restaurante+Boca+Da+Encumeada" class="btn btn-solid" data-i18n="directionsBtn">Get directions</a>
+      <a href="https://www.instagram.com/snackbarbocadaencumeada/" class="btn btn-outline-dark">@snackbarbocadaencumeada</a>
+    </div>
+  </div>
+</div>
+<div class="panorama-band">
+  <img src="images/hero.jpg" alt="The panoramic view from the terrace at Boca da Encumeada" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+<!-- FOOTER -->
+<div style="background: var(--ink); color: color-mix(in oklch, var(--paper) 70%, transparent); padding: 44px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+  <div class="display" style="font-size: 19px; color: var(--paper);">Boca da Encumeada</div>
+  <div style="font-size: 13px; text-align: center;">Estrada Regional da Encumeada, Serra de Água · +351 291 952 319</div>
+  <div style="font-size: 13px;" data-i18n="footerClosed">Closed Mondays</div>
+</div>
+
+<script>
+var content = {
+  en: {
+    navPass: 'The Pass', navMenu: 'Menu', navReviews: 'Reviews', navVisit: 'Visit',
+    heroEyebrow: 'Serra de Água · Madeira · 1000m above the sea',
+    heroSubtitle: "A family table perched on Madeira's most dramatic mountain pass — espetada off the grill, poncha in hand, and a view over both coasts at once.",
+    ctaVisit: 'Plan your visit', ctaMenu: 'See the menu',
+    hoursStrip: 'Open daily 8:00–20:00 · Closed Mondays',
+    ratingStrip: '4.5 · 41 reviews on TripAdvisor',
+    aboutEyebrow: 'About Us',
+    aboutBody: "A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Poncha is what we're known for — traditional, muddled to order, the proper way — though plenty of visitors say the espetada and the view give it a run for its money. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.",
+    storyEyebrow: 'The Pass', storyTitle: "Where the north coast meets the south",
+    storyP1: "Boca da Encumeada is the mountain pass where Madeira's two coastlines come into view at once — laurisilva forest, a UNESCO World Heritage woodland, rolling away on every side. It's a natural stopping point for anyone crossing the island, and the trailhead for some of Madeira's best-loved levada walks, including the Vereda da Encumeada and the Caminho do Pináculo e Folhadal.",
+    storyP2: "We've set up right at that viewpoint — a terrace of wooden tables under the awning, the mountains dropping away on both sides, and a kitchen turning out the kind of food that makes people pull over a second time on the way back down.",
+    menuEyebrow: 'On the Grill', menuTitle: 'Simple, honest Madeiran food',
+    menuIntro: "No printed menu online yet — call ahead for today's specials and prices. Here's what regulars come back for.",
+    card1Title: 'Espetada', card1Body: "Skewered beef, grilled over the open fire the traditional way. Reviewers have called it the best on the island — we're not going to argue.",
+    card2Title: 'Fresh Poncha', card2Body: "Madeira's traditional muddled spirit, made to order — the way to toast a mountain view. Fresh passion fruit juice too, for the non-drinkers.",
+    card3Title: 'Pepper Steak & Fondue', card3Body: "A hearty pepper steak, and a cheese fondue that keeps coming up in reviews — good sharing food after a levada walk.",
+    card4Title: 'Sandwiches & Soups', card4Body: "Chicken and steak sandwiches, tomato and fish soup — simple, generous, made for hikers coming off the trail hungry.",
+    card5Title: 'Galão & Homemade Cake', card5Body: "Coffee done properly — galão and café chinesa — next to a slice of homemade cake. Best excuse to linger over the view.",
+    card6Title: "Ask about today's specials", card6Body: "Menu changes with the season and the catch. Give us a call before you make the drive up.", card6Btn: 'Call +351 291 952 319',
+    reviewsEyebrow: 'What Travellers Say', reviewsTitle: 'Straight off Google & TripAdvisor', ratingCaption: '4.5 out of 5 · 41 reviews',
+    reviewCta: 'Read the rest of our reviews, or leave your own.', reviewLink: 'All reviews on TripAdvisor →',
+    visitEyebrow: 'Find Us', visitTitle: 'Visit the terrace',
+    phoneCaption: 'Best to call ahead on weekends',
+    hoursTitle: 'Tuesday – Sunday, 8:00 – 20:00', hoursCaption: 'Kitchen closes around 19:00 · Closed Mondays',
+    directionsBtn: 'Get directions', footerClosed: 'Closed Mondays'
+  },
+  pt: {
+    navPass: 'A Serra', navMenu: 'Ementa', navReviews: 'Opiniões', navVisit: 'Visitar',
+    heroEyebrow: 'Serra de Água · Madeira · a 1000m de altitude',
+    heroSubtitle: 'Uma mesa de família num dos pontos mais dramáticos da serra madeirense — espetada na brasa, poncha na mão, e vista para as duas costas ao mesmo tempo.',
+    ctaVisit: 'Planeie a sua visita', ctaMenu: 'Ver a ementa',
+    hoursStrip: 'Aberto todos os dias das 8:00 às 20:00 · Encerrado às segundas-feiras',
+    ratingStrip: '4.5 · 41 opiniões no TripAdvisor',
+    aboutEyebrow: 'Sobre Nós',
+    aboutBody: 'Um bar e restaurante familiar, instalado mesmo no ponto mais alto da estrada que liga as duas costas da Madeira. A poncha é a nossa marca — tradicional, batida na hora, como deve ser — mas há quem diga que a espetada e a vista lhe fazem frente. Somos paragem habitual de jipes turísticos e de quem atravessa o interior da ilha: cerca de 40 minutos a subir desde o Funchal, ou 15 minutos a descer a serra desde São Vicente.',
+    storyEyebrow: 'A Serra', storyTitle: 'Onde a costa norte encontra a costa sul',
+    storyP1: 'A Boca da Encumeada é o ponto da serra onde se avistam as duas costas da Madeira ao mesmo tempo — rodeada pela floresta Laurissilva, Património Mundial da UNESCO. É paragem natural para quem atravessa a ilha, e ponto de partida para alguns dos percursos de levada mais queridos da Madeira, como a Vereda da Encumeada e o Caminho do Pináculo e Folhadal.',
+    storyP2: 'Instalámo-nos mesmo neste miradouro — um terraço de mesas de madeira sob o telheiro, a serra a cair para os dois lados, e uma cozinha que faz as pessoas pararem uma segunda vez na descida.',
+    menuEyebrow: 'Na Brasa', menuTitle: 'Comida madeirense simples e genuína',
+    menuIntro: 'Ainda sem ementa online — ligue com antecedência para saber os pratos e preços do dia. Aqui fica o que faz os habituais voltarem.',
+    card1Title: 'Espetada', card1Body: 'Carne no espeto, grelhada na brasa à moda tradicional. Há quem diga que é a melhor da ilha — nós não discordamos.',
+    card2Title: 'Poncha Fresca', card2Body: 'A bebida tradicional da Madeira, batida na hora — a forma certa de brindar a uma vista destas. Também há sumo de maracujá fresco para quem não bebe.',
+    card3Title: 'Bife ao Molho de Pimenta & Fondue', card3Body: 'Um bife ao molho de pimenta bem servido, e um fondue de queijo sempre presente nas opiniões — ótimo para partilhar depois de uma caminhada pela levada.',
+    card4Title: 'Sandes & Sopas', card4Body: 'Sandes de frango e de bife, sopa de tomate e sopa de peixe — simples, generosas, feitas para caminheiros com fome.',
+    card5Title: 'Galão & Bolo Caseiro', card5Body: 'Café como deve ser — galão e chinesa — ao lado de uma fatia de bolo caseiro. A melhor desculpa para demorar mais um pouco a apreciar a vista.',
+    card6Title: 'Pergunte pelos pratos do dia', card6Body: 'A ementa muda com a época e a pesca do dia. Ligue antes de subir a serra.', card6Btn: 'Ligar +351 291 952 319',
+    reviewsEyebrow: 'O Que Dizem os Viajantes', reviewsTitle: 'Direto do Google e do TripAdvisor', ratingCaption: '4.5 em 5 · 41 opiniões',
+    reviewCta: 'Leia mais opiniões, ou deixe a sua.', reviewLink: 'Todas as opiniões no TripAdvisor →',
+    visitEyebrow: 'Onde Estamos', visitTitle: 'Venha até ao terraço',
+    phoneCaption: 'De preferência, ligue antes aos fins de semana',
+    hoursTitle: 'Terça a domingo, das 8:00 às 20:00', hoursCaption: 'A cozinha fecha por volta das 19:00 · Encerrado às segundas-feiras',
+    directionsBtn: 'Como chegar', footerClosed: 'Encerrado às segundas-feiras'
+  }
+};
+
+function setLang(lang) {
+  var dict = content[lang] || content.en;
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n');
+    if (dict[key]) el.textContent = dict[key];
+  });
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  document.documentElement.setAttribute('lang', lang);
+  try { localStorage.setItem('boca-lang', lang); } catch (e) {}
+}
+
+(function init() {
+  var saved = null;
+  try { saved = localStorage.getItem('boca-lang'); } catch (e) {}
+  var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
