@@ -54,9 +54,12 @@
   .stars { position: relative; display: inline-block; letter-spacing: 2px; font-size: 16px; line-height: 1; }
   .stars-bg { color: color-mix(in oklch, var(--gold) 35%, transparent); }
   .stars-fill { position: absolute; left: 0; top: 0; width: 90%; overflow: hidden; white-space: nowrap; color: var(--gold); }
+  .nav-eyebrow { display: none; }
   @media (min-width: 861px) {
     .nav-brand { font-size: 38px !important; line-height: 1.1; }
+    .nav-eyebrow { display: block; margin-top: 3px; font-size: 11px; color: oklch(62% 0.12 80); }
     .hero-h1 { display: none; }
+    .hero-text { display: none; }
   }
   @media (max-width: 860px) {
     .section-pad { padding: 64px 24px; }
@@ -81,7 +84,10 @@
 
 <!-- NAV -->
 <div style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: color-mix(in oklch, var(--cream) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid color-mix(in oklch, var(--ink) 10%, transparent);">
-  <div class="display nav-brand" style="font-size: 22px; color: var(--pine); font-weight: 600;">Boca da Encumeada</div>
+  <div>
+    <div class="display nav-brand" style="font-size: 22px; color: var(--pine); font-weight: 600;">Boca da Encumeada</div>
+    <div class="eyebrow nav-eyebrow" data-i18n="heroEyebrow">Serra de Água · Madeira · 1000m above the sea</div>
+  </div>
   <div class="nav-links" style="display: flex; align-items: center; gap: 32px; font-size: 14px; font-weight: 600; letter-spacing: 0.03em;">
     <a href="#historia" style="color: var(--ink);" data-i18n="navPass">The Pass</a>
     <a href="#ementa" style="color: var(--ink);" data-i18n="navMenu">Menu</a>
