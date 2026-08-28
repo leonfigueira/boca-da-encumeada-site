@@ -1,6 +1,6 @@
 # Boca da Encumeada Website — Master Plan / Handoff Doc
 
-**Status as of 2026-08-28: 🟢 LIVE at bocadaencumeada.com. Hours corrected to match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Coffee + drinks photo pair added to the gallery. Local project folder on Leon's Mac at `~/Desktop/Projects/Boca-da-Encumeada-Site/`, pushed to GitHub at `github.com/leonfigueira/boca-da-encumeada-site` (main branch). Loop fully closed.**
+**Status as of 2026-08-28 (late): 🟢 LIVE at bocadaencumeada.com with the full site rehaul deployed (see "2026-08-28 rehaul" section below). Hours match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Mac folder + GitHub repo `github.com/leonfigueira/boca-da-encumeada-site` in sync with the live site. The full, authoritative version of this doc is the Claude Project doc `claude/boca-da-encumeada-website-masterplan.md`.**
 
 This doc is mirrored as a Claude Project doc (`claude/boca-da-encumeada-website-masterplan.md`), and also as `~/Desktop/Projects/App-Handoffs/10-BOCA-DA-ENCUMEADA.md`.
 
@@ -98,3 +98,20 @@ Warm Madeira mountain-lodge aesthetic: terracotta/stone tones, deep Laurisilva g
 ### Bilingual EN/PT implementation
 
 Live toggle, `data-i18n` attributes + JS `content` dictionary. Real review quotes left in original English. European Portuguese, not Brazilian.
+
+## 2026-08-28 rehaul (deployed, preview-first)
+
+Leon asked for a contrarian review of the whole page (hero protected). What shipped:
+
+1. **Bottom panorama was the identical file as the hero.** Replaced with `images/valley.jpg` — new crop of the same source panorama (`IMG_8834.jpeg` on Leon's Desktop): `-crop 5173x1960+350+600`, the left-side valley-to-the-sea view; the +350 offset excludes a power line. Same finish (2400px, Lanczos, unsharp, q87).
+2. **Photo restructure:** drinks/coffee duo moved INTO the Menu section as figures with captions; railing shot became a full-bleed `.photo-band` between Menu and Reviews (`object-position: center 65%` — avoids the power pole; verified by screenshot comparison); storefront moved to Visit as a wayfinding photo.
+3. **Visit is a two-column `.visit-grid`:** info + new drive-times row on the left; Google Maps embed (`.map-frame` iframe, no API key) + storefront on the right. ⏳ The map couldn't be visually verified from the sandbox — confirm it renders live.
+4. **Honesty fixes:** reviews retitled ("What travellers say" — all quotes are TripAdvisor, none Google); both aggregate star displays render an actual 4½ (`.stars`/`.stars-bg`/`.stars-fill` overlap, width 90%).
+5. **Menu fixes:** non-apologetic intro, distinct card icons (flame/tumbler/pot/bowl/cup), poncha card trimmed.
+6. **Story P1 rewritten** to stop repeating the About blurb — now laurisilva + levada trailheads.
+7. **Footer** shows full hours.
+8. **The two milky drinks are NOT poncha (Leon confirmed)** — caption is "Something cold for the terrace" / "Algo fresco para a esplanada". Don't re-caption them as poncha.
+
+New i18n keys (both dictionaries): `duoDrinksCaption`, `duoCoffeeCaption`, `driveTitle`, `driveCaption`, `visitPhotoCaption`. Every new user-facing string needs a key in BOTH the EN and PT dictionaries or it silently stays English when toggled.
+
+**Current page flow:** nav → Hero → strip (4½ stars) → About → Story → Menu (+duo) → railing band → Reviews → Visit (info | map+storefront) → valley panorama → Footer.
