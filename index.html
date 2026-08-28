@@ -51,6 +51,8 @@
   .map-frame { width: 100%; height: 380px; border: 0; border-radius: 2px; display: block; }
   .duo-photos figure { margin: 0; }
   .duo-photos figcaption { font-size: 13.5px; color: var(--ink-soft); margin-top: 12px; text-align: center; letter-spacing: 0.04em; }
+  .nearby-card { transition: box-shadow 0.2s ease, transform 0.2s ease; }
+  .nearby-card:hover { box-shadow: 0 16px 34px -14px oklch(20% 0.03 55 / 0.4); transform: translateY(-2px); color: inherit; }
   .stars { position: relative; display: inline-block; letter-spacing: 2px; font-size: 16px; line-height: 1; }
   .stars-bg { color: color-mix(in oklch, var(--gold) 35%, transparent); }
   .stars-fill { position: absolute; left: 0; top: 0; width: 92%; overflow: hidden; white-space: nowrap; color: var(--gold); }
@@ -229,54 +231,60 @@
       <p style="font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin: 18px 0 0;" data-i18n="nearbyIntro">Some of Madeira's best walking, viewpoints and coastline sit within half an hour of our terrace. Park once, eat well, explore from here.</p>
     </div>
     <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=Miradouro+Boca+da+Encumeada" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-viewpoint.jpg" alt="The view from the Boca da Encumeada viewpoint over the valley" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb1Meta">Right outside</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb1Title">Boca da Encumeada Viewpoint</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb1Body">The classic viewpoint over the Serra de Água valley is steps from our terrace — on a clear day, both coasts at once.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      </a>
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=PR17+Caminho+do+Pin%C3%A1culo+e+Folhadal" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-levada.jpg" alt="A waterfall pouring over the levada path near Encumeada" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb2Meta">Trailhead at the pass</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb2Title">Levada do Norte & Folhadal</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb2Body">Levada walking through tunnels and laurisilva towards Folhadal, starting right at the pass.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      </a>
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=Pico+Grande+Madeira" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-pico.jpg" alt="Pico Grande's rock tower against a blue sky" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb3Meta">Hike from the pass</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb3Title">Pico Grande</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb3Body">The great rock tower next door. The old royal path, the Caminho Real da Encumeada, climbs from here along its flank.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      </a>
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=Miradouro+Bica+da+Cana" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-bica.jpg" alt="View from Bica da Cana towards the sea at dusk" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb4Meta">10 min drive</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb4Title">Miradouro da Bica da Cana</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb4Body">Up on the Paul da Serra plateau, looking straight back down the São Vicente valley. A sunrise favourite.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      </a>
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=Cascata+das+25+Fontes" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-fontes.jpg" alt="The mossy waterfall wall at 25 Fontes" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb5Meta">20 min drive</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb5Title">Rabaçal & 25 Fontes</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb5Body">Madeira's most famous levada walk — twenty-five springs feeding one green amphitheatre. Go early; it's popular.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
-      <div style="background: var(--paper); border-radius: 2px; overflow: hidden;">
+      </a>
+      <a class="nearby-card" href="https://www.google.com/maps/search/?api=1&query=Piscinas+Naturais+do+Seixal" target="_blank" rel="noopener" style="display: block; background: var(--paper); border-radius: 2px; overflow: hidden; color: inherit;">
         <img src="images/nearby-seixal.jpg" alt="Seixal village and its black-sand bay on the north coast" style="width: 100%; height: 180px; object-fit: cover; display: block;">
         <div style="padding: 22px 26px 28px;">
         <div class="eyebrow" style="font-size: 11px;" data-i18n="nb6Meta">25 min drive</div>
         <h3 class="display" style="font-size: 23px; margin: 12px 0 8px; color: var(--ink);" data-i18n="nb6Title">Seixal & the North Coast</h3>
         <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="nb6Body">Natural lava pools, a black-sand beach and the Véu da Noiva waterfall viewpoint, down through São Vicente.</p>
+        <div style="margin-top: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: var(--terracotta-dark);" data-i18n="nbMapLink">View on Google Maps →</div>
         </div>
-      </div>
+      </a>
     </div>
     <p style="text-align: center; font-size: 13.5px; color: var(--ink-soft); margin: 28px 0 0; letter-spacing: 0.02em;"><span data-i18n="nearbyNote">Mountain weather moves fast — check the official trail status before setting off on a walk:</span> <a href="https://visitmadeira.com/en/what-to-do/nature-seekers/activities/hiking/" target="_blank" rel="noopener">visitmadeira.com</a></p>
     <p style="text-align: center; font-size: 12px; color: color-mix(in oklch, var(--ink-soft) 75%, transparent); margin: 10px 0 0;"><span data-i18n="photoCredits">Area photos:</span> <a href="https://commons.wikimedia.org/wiki/File:Encumeada._Madeira._Portugal_%2701.jpg" target="_blank" rel="noopener">Lmbuga</a>, <a href="https://commons.wikimedia.org/wiki/File:Pr_17,_Encumeada,_Madeira,_waterfall_on_upper_levada.jpg" target="_blank" rel="noopener">Gerda Arendt</a>, <a href="https://commons.wikimedia.org/wiki/File:Pico_Grande_2.jpg" target="_blank" rel="noopener">Tiia Monto</a>, <a href="https://commons.wikimedia.org/wiki/File:Madeira-Bica_da_Cana-01ESD.jpg" target="_blank" rel="noopener">Rikki Mitterer</a>, <a href="https://commons.wikimedia.org/wiki/File:25Fontes-Madeira-2013.JPG" target="_blank" rel="noopener">Bjørn C. Tørrissen</a>, <a href="https://commons.wikimedia.org/wiki/File:Panoramicas_de_Seixal_(1).jpg" target="_blank" rel="noopener">Alberto-g-rovi</a> · Wikimedia Commons · CC BY / CC BY-SA</p>
@@ -418,6 +426,7 @@ var content = {
     nb4Meta: '10 min drive', nb4Title: 'Miradouro da Bica da Cana', nb4Body: 'Up on the Paul da Serra plateau, looking straight back down the São Vicente valley. A sunrise favourite.',
     nb5Meta: '20 min drive', nb5Title: 'Rabaçal & 25 Fontes', nb5Body: "Madeira's most famous levada walk — twenty-five springs feeding one green amphitheatre. Go early; it's popular.",
     nb6Meta: '25 min drive', nb6Title: 'Seixal & the North Coast', nb6Body: 'Natural lava pools, a black-sand beach and the Véu da Noiva waterfall viewpoint, down through São Vicente.',
+    nbMapLink: 'View on Google Maps →',
     photoCredits: 'Area photos:',
     nearbyNote: 'Mountain weather moves fast — check the official trail status before setting off on a walk:',
     reviewsEyebrow: 'Reviews', reviewsTitle: 'What travellers say', ratingCaption: '4.6 on Google · 4.5 on TripAdvisor',
@@ -462,6 +471,7 @@ var content = {
     nb4Meta: '10 min de carro', nb4Title: 'Miradouro da Bica da Cana', nb4Body: 'No planalto do Paul da Serra, debruçado sobre o vale de São Vicente. Um favorito ao nascer do sol.',
     nb5Meta: '20 min de carro', nb5Title: 'Rabaçal & 25 Fontes', nb5Body: 'A levada mais famosa da Madeira — vinte e cinco nascentes num anfiteatro verde. Vá cedo; é concorrida.',
     nb6Meta: '25 min de carro', nb6Title: 'Seixal e a Costa Norte', nb6Body: 'Piscinas naturais de lava, uma praia de areia preta e o miradouro do Véu da Noiva, descendo por São Vicente.',
+    nbMapLink: 'Ver no Google Maps →',
     photoCredits: 'Fotografias dos locais:',
     nearbyNote: 'O tempo na serra muda depressa — confirme o estado oficial dos percursos antes de qualquer caminhada:',
     reviewsEyebrow: 'Opiniões', reviewsTitle: 'O que dizem os visitantes', ratingCaption: '4.6 no Google · 4.5 no TripAdvisor',
