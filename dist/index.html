@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boca da Encumeada — Snack Bar Restaurante, Serra de Água, Madeira</title>
-<meta name="description" content="Snack Bar Restaurante Boca Da Encumeada — a family-run mountain-pass restaurant in Serra de Água, Madeira. Espetada, poncha, and a panoramic view over both coasts. Open daily 8:00–20:00, closed Mondays.">
+<meta name="description" content="Snack Bar Restaurante Boca Da Encumeada — a family-run mountain-pass restaurant in Serra de Água, Madeira. Espetada, poncha, and a panoramic view over both coasts. Open Monday–Saturday 8:30–19:30, closed Sundays.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +53,8 @@
     .grid-3 { grid-template-columns: 1fr !important; }
     .gallery-grid { grid-template-columns: 1fr !important; }
     .gallery-grid img { height: 300px !important; }
+    .duo-photos { gap: 10px !important; }
+    .duo-photos img { height: 220px !important; }
     .nav-links { display: none !important; }
   }
 </style>
@@ -100,7 +102,7 @@
 <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; padding: 22px 48px; background: var(--pine); color: var(--paper);">
   <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em;">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    <span data-i18n="hoursStrip">Open daily 8:00–20:00 · Closed Mondays</span>
+    <span data-i18n="hoursStrip">Open Mon–Sat 8:30–19:30 · Closed Sundays</span>
   </div>
   <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;">
     <span style="color: var(--gold); letter-spacing: 2px; font-size: 16px;">★★★★★</span>
@@ -184,6 +186,14 @@
   </div>
 </div>
 
+<!-- DUO PHOTOS -->
+<div style="padding: 48px 48px 0; text-align: center;">
+  <div class="wrap duo-photos" style="display: flex; justify-content: center; align-items: flex-end; gap: 20px; flex-wrap: wrap;">
+    <img src="images/coffee.jpg" alt="Espresso from Cafés TOFA on the terrace, mountains behind" style="height: 480px; width: auto; max-width: 100%; border-radius: 2px; box-shadow: 0 24px 48px -18px oklch(20% 0.03 55 / 0.35);">
+    <img src="images/drinks.jpg" alt="Two of the terrace's house specialty drinks with a mountain view" style="height: 480px; width: auto; max-width: 100%; border-radius: 2px; box-shadow: 0 24px 48px -18px oklch(20% 0.03 55 / 0.35);">
+  </div>
+</div>
+
 <!-- REVIEWS -->
 <div id="opinioes" class="section-pad" style="background: var(--pine); color: var(--paper);">
   <div class="wrap">
@@ -254,8 +264,8 @@
     <div style="display: flex; gap: 16px; margin-bottom: 34px;">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.8" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       <div>
-        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;" data-i18n="hoursTitle">Tuesday – Sunday, 8:00 – 20:00</div>
-        <div style="font-size: 15px; color: var(--ink-soft);" data-i18n="hoursCaption">Kitchen closes around 19:00 · Closed Mondays</div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;" data-i18n="hoursTitle">Monday – Saturday, 8:30 – 19:30</div>
+        <div style="font-size: 15px; color: var(--ink-soft);" data-i18n="hoursCaption">Closed Sundays</div>
       </div>
     </div>
     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
@@ -272,7 +282,7 @@
 <div style="background: var(--ink); color: color-mix(in oklch, var(--paper) 70%, transparent); padding: 44px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
   <div class="display" style="font-size: 19px; color: var(--paper);">Boca da Encumeada</div>
   <div style="font-size: 13px; text-align: center;">Estrada Regional da Encumeada, Serra de Água · +351 291 952 319</div>
-  <div style="font-size: 13px;" data-i18n="footerClosed">Closed Mondays</div>
+  <div style="font-size: 13px;" data-i18n="footerClosed">Closed Sundays</div>
 </div>
 
 <script>
@@ -282,7 +292,7 @@ var content = {
     heroEyebrow: 'Serra de Água · Madeira · 1000m above the sea',
     heroSubtitle: "A family table perched on Madeira's most dramatic mountain pass — espetada off the grill, poncha in hand, and a view over both coasts at once.",
     ctaVisit: 'Plan your visit', ctaMenu: 'See the menu',
-    hoursStrip: 'Open daily 8:00–20:00 · Closed Mondays',
+    hoursStrip: 'Open Mon–Sat 8:30–19:30 · Closed Sundays',
     ratingStrip: '4.5 · 41 reviews on TripAdvisor',
     aboutEyebrow: 'About Us',
     aboutBody: "A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Poncha is what we're known for — traditional, muddled to order, the proper way — though plenty of visitors say the espetada and the view give it a run for its money. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.",
@@ -301,15 +311,15 @@ var content = {
     reviewCta: 'Read the rest of our reviews, or leave your own.', reviewLink: 'All reviews on TripAdvisor →',
     visitEyebrow: 'Find Us', visitTitle: 'Visit the terrace',
     phoneCaption: 'Best to call ahead on weekends',
-    hoursTitle: 'Tuesday – Sunday, 8:00 – 20:00', hoursCaption: 'Kitchen closes around 19:00 · Closed Mondays',
-    directionsBtn: 'Get directions', footerClosed: 'Closed Mondays'
+    hoursTitle: 'Monday – Saturday, 8:30 – 19:30', hoursCaption: 'Closed Sundays',
+    directionsBtn: 'Get directions', footerClosed: 'Closed Sundays'
   },
   pt: {
     navPass: 'A Serra', navMenu: 'Ementa', navReviews: 'Opiniões', navVisit: 'Visitar',
     heroEyebrow: 'Serra de Água · Madeira · a 1000m de altitude',
     heroSubtitle: 'Uma mesa de família num dos pontos mais dramáticos da serra madeirense — espetada na brasa, poncha na mão, e vista para as duas costas ao mesmo tempo.',
     ctaVisit: 'Planeie a sua visita', ctaMenu: 'Ver a ementa',
-    hoursStrip: 'Aberto todos os dias das 8:00 às 20:00 · Encerrado às segundas-feiras',
+    hoursStrip: 'Aberto de segunda a sábado, das 8:30 às 19:30 · Encerrado aos domingos',
     ratingStrip: '4.5 · 41 opiniões no TripAdvisor',
     aboutEyebrow: 'Sobre Nós',
     aboutBody: 'Um bar e restaurante familiar, instalado mesmo no ponto mais alto da estrada que liga as duas costas da Madeira. A poncha é a nossa marca — tradicional, batida na hora, como deve ser — mas há quem diga que a espetada e a vista lhe fazem frente. Somos paragem habitual de jipes turísticos e de quem atravessa o interior da ilha: cerca de 40 minutos a subir desde o Funchal, ou 15 minutos a descer a serra desde São Vicente.',
@@ -328,8 +338,8 @@ var content = {
     reviewCta: 'Leia mais opiniões, ou deixe a sua.', reviewLink: 'Todas as opiniões no TripAdvisor →',
     visitEyebrow: 'Onde Estamos', visitTitle: 'Venha até ao terraço',
     phoneCaption: 'De preferência, ligue antes aos fins de semana',
-    hoursTitle: 'Terça a domingo, das 8:00 às 20:00', hoursCaption: 'A cozinha fecha por volta das 19:00 · Encerrado às segundas-feiras',
-    directionsBtn: 'Como chegar', footerClosed: 'Encerrado às segundas-feiras'
+    hoursTitle: 'Segunda a sábado, das 8:30 às 19:30', hoursCaption: 'Encerrado aos domingos',
+    directionsBtn: 'Como chegar', footerClosed: 'Encerrado aos domingos'
   }
 };
 
