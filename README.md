@@ -7,6 +7,7 @@ Marketing website for Snack Bar Restaurante Boca Da Encumeada, a family-run moun
 ## What's here
 
 - `index.html` — the whole site. Single-file static HTML/CSS/vanilla JS, no build step, no framework. Bilingual (EN/PT) via a `content` dictionary + `data-i18n` attributes + `setLang()`.
+- **Menu prices** live in the `var MENU = [...]` array at the top of the `<script>` in `index.html` — `[PT name, EN line, price, madeiranTag?]`. The printed table vinyl is the source of truth; when it's reprinted, update `MENU` and the "September 2026" date in `menuFoot` (EN and PT), then deploy.
 - `images/` — the four processed photos (hero, terrace, railing, storefront). See `HANDOFF.md` for the exact ImageMagick crop recipe if these ever need regenerating from the originals.
 - `wrangler.jsonc` — Cloudflare Workers (static assets) deploy config.
 - `dist/` — deployable copy of `index.html` + `images/` (this is what `wrangler deploy` actually uploads, kept separate so `wrangler.jsonc` itself doesn't get served as a static asset). **After editing `index.html` or `images/`, copy them into `dist/` before deploying.**

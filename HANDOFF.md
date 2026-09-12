@@ -1,6 +1,6 @@
 # Boca da Encumeada Website — Master Plan / Handoff Doc
 
-**Status as of 2026-08-28 (late): 🟢 LIVE at bocadaencumeada.com with the full site rehaul deployed (see "2026-08-28 rehaul" section below). Hours match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Mac folder + GitHub repo `github.com/leonfigueira/boca-da-encumeada-site` in sync with the live site. The full, authoritative version of this doc is the Claude Project doc `claude/boca-da-encumeada-website-masterplan.md`.**
+**Status as of 2026-09-12: full printed food + drinks menus with prices added to the site, audited, deployed — see the 2026-09-12 section. Previous: 2026-08-28 (late): 🟢 LIVE at bocadaencumeada.com with the full site rehaul deployed (see "2026-08-28 rehaul" section below). Hours match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Mac folder + GitHub repo `github.com/leonfigueira/boca-da-encumeada-site` in sync with the live site. The full, authoritative version of this doc is the Claude Project doc `claude/boca-da-encumeada-website-masterplan.md`.**
 
 This doc is mirrored as a Claude Project doc (`claude/boca-da-encumeada-website-masterplan.md`), and also as `~/Desktop/Projects/App-Handoffs/10-BOCA-DA-ENCUMEADA.md`.
 
@@ -115,3 +115,28 @@ Leon asked for a contrarian review of the whole page (hero protected). What ship
 New i18n keys (both dictionaries): `duoDrinksCaption`, `duoCoffeeCaption`, `driveTitle`, `driveCaption`, `visitPhotoCaption`. Every new user-facing string needs a key in BOTH the EN and PT dictionaries or it silently stays English when toggled.
 
 **Current page flow:** nav → Hero → strip (4½ stars) → About → Story → Menu (+duo) → railing band → Reviews → Visit (info | map+storefront) → valley panorama → Footer.
+
+## 2026-09-12: the printed table menu goes on the site (audited)
+
+Leon's mum sent the printer's proof (`Maqueta_Vinil_Mesa.pdf`, ViProduções, 42.2×35.2 cm table vinyl, PT names + EN/FR/DE lines) and then photos of the printed vinyl. **The printed vinyl is the source of truth for dishes and prices.** It matches the proof exactly plus one addition after proofing: `Bife de Atum — 18,50 €` (first item under PEIXES). 71 items in 15 categories. No drinks on it at all.
+
+**Customers are mostly tourists** (Leon, 2026-09-12) — English descriptions explain the Madeiran dishes; six local dishes carry a "Madeiran"/"Madeirense" tag (bolo do caco, espetada, both beef picados, espada, milho frito, bolo de mel).
+
+What changed in `index.html` (all inside `#ementa` unless noted):
+- **Data:** `var MENU = [...]` at the top of the `<script>` — `[PT name, EN line, price, madeiranTag?]` per item, category `{pt, en, note?}`. **Edit prices here only.** `renderMenu(lang)` (called from `setLang`) draws it into `#menu-list`; PT shows the PT name only, EN adds the English line. Category headers localised. When the vinyl is reprinted, update `MENU` and the "September 2026" date in `menuFoot` (EN + PT) the same day.
+- **Cards:** six → three (Espetada & Picado / Bolo do Caco & Fondue / Espada & Bacalhau). Dropped: "Fresh Poncha" (no drinks on the menu), "Sandwiches & Soups" (claimed tomato and fish soup — not on the menu), "Galão & Homemade Cake" (coffee moved to the bar note), "Ask about today's specials — menu changes with the season and the catch" (unverifiable against a fixed printed menu).
+- **Full list** in a `<details id="menu-details">` — open on desktop (`matchMedia(min-width: 861px)` in `init`), collapsed on phones (the list is ~7,000 px tall at 390 px). Footnote `menuFoot`: prices in euros / dated / kids + vegetarian / allergies → staff / phone (non-breaking spaces in the number).
+- Photos moved after the list; `barNote` after the photos (galão, chinesa, passion-fruit juice, tap beer, poncha — all from the quoted reviews; no prices).
+- **Poncha demoted, not removed:** About now leads with espetada and the view ("and a proper poncha for whoever isn't driving"); meta description no longer leads with poncha. Restore if the parents confirm poncha really is the signature (question sent 2026-09-12). Also asked: espetada on wood or gas — the site now avoids "over the open fire".
+- Eyebrow "On the Grill" → "The Menu" / "A Ementa"; "Reviewers have called it the best on the island" → "one reviewer called our espetada the best they'd ever had" (that is what `review1` says).
+- Pre-existing bug fixed in passing: the nav phone button wrapped onto four lines at 390 px; on phones it now shows the icon + "Call"/"Ligar" (`.nav-phone-num` / `.nav-phone-short`, key `navCall`).
+- New i18n keys (both dictionaries): `menuListTitle`, `menuListHint`, `menuFoot`, `menuTag`, `barNote`, `navCall`. Removed: `card4*`, `card5*`, `card6*`.
+
+**Process:** a contrarian auditor agent reviewed the plan (15 findings) and the built result (10 findings, zero data mismatches after parsing `MENU` against the transcription); everything actionable was applied. Verified with local Playwright screenshots at 1280 and 390 px, EN and PT, no console errors.
+
+**The printed vinyl has translation errors** (not fixed from the proof; the proof's small print makes the client responsible for spelling): picado = "Minced Beef / Boeuf Haché / Gehacktes Rindfleisch"; CARNES header German "Omelett" (Fleisch); DOSES "Dosis" (Beilagen); "Foudue de Queijo / Cheese Foudue"; "Kabeljau Nach Hausarzt" (nach Art des Hauses); "Vorpeisen"; "Toasbrot"; "ceufs"; "Green Pepper / Steak de Filet Vert" (green peppercorn / au poivre vert); escalope sandwich called a salad in FR/DE; Fondue de Queijo e Alheira = "Cheese Fondue and Chicken"; "Fried Corn" for milho frito; "Sahnetorte" for pastel de nata; "Salaten"; "Salade Mixte – Petit/Grand". The site does NOT copy these, so the site and the table menu disagree on those lines until a reprint. Leon has a message to send his parents about it.
+
+**Drinks (same day, from photos of the printed "Bebidas" card):** `var DRINKS = [...]` next to `MENU`, same shape (a string price like `'5,00 / 6,00 €'` is shown as-is — used for nikitas). Rendered by `renderList('drinks-list', DRINKS, lang)` into a second `<details id="drinks-details">` under the food list, open on desktop, collapsed on phones. 108 items: ponchas (9), nikitas (7), cocktails, fresh juices, coffee, teas, beer, wine/sangria, Madeira wine, port, liqueurs, soft drinks, water. Keys `drinksListTitle`, `drinksListHint`, `drinksFoot`; `barNote` removed (redundant now). Poncha IS on the drinks card (nine of them), so the About wording stands.
+
+**Not done, deliberately:** FR/DE site languages (the vinyl has the strings; the rest of the site would need translating — obvious next step for a tourist audience); a menu PDF download (the proof carries the printer's disclaimer).
+

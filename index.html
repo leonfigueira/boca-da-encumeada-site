@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boca da Encumeada — Snack Bar Restaurante, Serra de Água, Madeira</title>
-<meta name="description" content="Snack Bar Restaurante Boca Da Encumeada — a family-run mountain-pass restaurant in Serra de Água, Madeira. Espetada, poncha, and a panoramic view over both coasts. Open Monday–Saturday 8:30–19:30, closed Sundays.">
+<meta name="description" content="Snack Bar Restaurante Boca Da Encumeada — a family-run mountain-pass restaurant in Serra de Água, Madeira. Espetada, bolo do caco, bacalhau and a panoramic view over both coasts. Full menu with prices. Open Monday–Saturday 8:30–19:30, closed Sundays.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +57,30 @@
   .stars-bg { color: color-mix(in oklch, var(--gold) 35%, transparent); }
   .stars-fill { position: absolute; left: 0; top: 0; width: 92%; overflow: hidden; white-space: nowrap; color: var(--gold); }
   .nav-eyebrow { display: none; }
+  .nav-phone { white-space: nowrap; }
+  .nav-phone-short { display: none; }
+  .menu-list { column-count: 3; column-gap: 40px; margin-top: 28px; }
+  .menu-cat { break-inside: avoid; margin: 0 0 34px; }
+  .menu-cat-title { font-size: 26px; margin: 0 0 4px; color: var(--pine); }
+  .menu-cat-note { font-size: 13px; color: var(--ink-soft); font-style: italic; margin: 0 0 6px; }
+  .menu-item { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px dotted color-mix(in oklch, var(--ink) 18%, transparent); }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .menu-item-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .menu-item-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.4; }
+  .menu-item-price { font-size: 15px; font-weight: 600; color: var(--terracotta-dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .menu-details { margin-top: 56px; border-top: 1px solid color-mix(in oklch, var(--ink) 12%, transparent); padding-top: 28px; }
+  .menu-summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 12px; }
+  .menu-summary::-webkit-details-marker { display: none; }
+  .menu-summary::after { content: '+'; margin-left: auto; font-size: 30px; line-height: 1; color: var(--terracotta); font-weight: 400; }
+  .menu-details[open] .menu-summary::after { content: '–'; }
+  .menu-summary-title { font-size: 34px; color: var(--pine); }
+  .menu-summary-hint { font-size: 14px; color: var(--ink-soft); letter-spacing: 0.04em; }
+  .menu-tag { display: inline-block; font-family: 'Karla', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pine); border: 1px solid color-mix(in oklch, var(--pine) 40%, transparent); border-radius: 2px; padding: 1px 5px; margin-left: 8px; vertical-align: 2px; }
+  .menu-bar-note { text-align: center; font-size: 14.5px; color: var(--ink-soft); max-width: 640px; margin: 28px auto 0; line-height: 1.6; }
+  .menu-foot { text-align: center; font-size: 13px; color: var(--ink-soft); margin: 24px 0 0; letter-spacing: 0.02em; }
+  @media (max-width: 1000px) { .menu-list { column-count: 2; } }
+  @media (max-width: 640px) { .menu-list { column-count: 1; } }
   @media (min-width: 861px) {
     .nav-brand { font-size: 38px !important; line-height: 1.1; }
     .nav-eyebrow { display: block; margin-top: 3px; font-size: 11px; color: oklch(62% 0.12 80); }
@@ -82,6 +106,10 @@
     .duo-photos { gap: 12px !important; }
     .duo-photos img { height: 220px !important; }
     .nav-links { display: none !important; }
+    .nav-phone-num { display: none; }
+    .nav-phone-short { display: inline; }
+    .menu-summary-title { font-size: 28px; }
+    .menu-summary-hint { white-space: nowrap; }
   }
 </style>
 </head>
@@ -107,7 +135,7 @@
     </div>
     <a href="tel:+351291952319" class="btn btn-outline-dark nav-phone" style="padding: 10px 20px; font-size: 13px;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      +351 291 952 319
+      <span class="nav-phone-num">+351 291 952 319</span><span class="nav-phone-short" data-i18n="navCall">Call</span>
     </a>
   </div>
 </div>
@@ -142,7 +170,7 @@
 <div style="padding: 48px 48px 8px; text-align: center;">
   <div class="wrap" style="max-width: 720px;">
     <div class="eyebrow" style="justify-content: center;" data-i18n="aboutEyebrow">About Us</div>
-    <p style="font-size: 17px; line-height: 1.75; color: var(--ink-soft); margin: 14px 0 0;" data-i18n="aboutBody">A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Poncha is what we're known for — traditional, muddled to order, the proper way — though plenty of visitors say the espetada and the view give it a run for its money. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.</p>
+    <p style="font-size: 17px; line-height: 1.75; color: var(--ink-soft); margin: 14px 0 0;" data-i18n="aboutBody">A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Known for the espetada and the view — and a proper poncha for whoever isn't driving. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.</p>
   </div>
 </div>
 
@@ -166,43 +194,38 @@
 <div id="ementa" class="section-pad" style="background: var(--cream-2);">
   <div class="wrap">
     <div style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
-      <div class="eyebrow" style="justify-content: center;" data-i18n="menuEyebrow">On the Grill</div>
+      <div class="eyebrow" style="justify-content: center;" data-i18n="menuEyebrow">The Menu</div>
       <h2 class="display" style="font-size: 44px; margin: 14px 0 0; color: var(--pine);" data-i18n="menuTitle">Simple, honest Madeiran food</h2>
       <hr class="divider" style="margin: 20px auto 0;">
-      <p style="font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin: 18px 0 0;" data-i18n="menuIntro">No fuss and no shortcuts — espetada over the fire, poncha muddled at the bar, and cake that tastes homemade because it is. Here's what regulars come back for.</p>
+      <p style="font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin: 18px 0 0;" data-i18n="menuIntro">No fuss and no shortcuts — espetada and picado, bolo do caco with garlic butter, bacalhau and espada, and cake that tastes homemade because it is. Every dish, drink and price is below.</p>
     </div>
     <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
       <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card1Title">Espetada</h3>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card1Body">Skewered beef, grilled over the open fire the traditional way. Reviewers have called it the best on the island — we're not going to argue.</p>
-      </div>
-      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M8 21h8"/><path d="M12 21v-5"/><path d="M5 3h14l-1.5 9a5 5 0 0 1-5 4h-1a5 5 0 0 1-5-4z"/><path d="M5 3l-1 3"/><path d="M19 3l1 3"/></svg>
-        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card2Title">Fresh Poncha</h3>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card2Body">Madeira's traditional muddled spirit, made to order — the proper way to toast a mountain view. Fresh passion fruit juice for the non-drinkers.</p>
-      </div>
-      <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><rect x="3" y="11" width="14" height="8" rx="1"/><path d="M17 13h2a2 2 0 0 1 0 4h-2"/><path d="M6 3v3M10 3v3M14 3v3"/></svg>
-        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card3Title">Pepper Steak & Fondue</h3>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card3Body">A hearty pepper steak, and a cheese fondue that keeps coming up in reviews — good sharing food after a levada walk.</p>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card1Title">Espetada &amp; Picado</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card1Body">Beef on the skewer, and picado — garlic-fried beef pieces on a platter to share. The two Madeiran classics; one reviewer called our espetada the best they'd ever had.</p>
       </div>
       <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M4 12a8 8 0 0 0 16 0z"/><path d="M8 21h8"/><path d="M12 16v3"/><path d="M9 8V6M12 8V4M15 8V6"/></svg>
-        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card4Title">Sandwiches & Soups</h3>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card4Body">Chicken and steak sandwiches, tomato and fish soup — simple, generous, made for hikers coming off the trail hungry.</p>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card2Title">Bolo do Caco &amp; Fondue</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card2Body">Madeiran flatbread with garlic butter to start, and the cheese fondue the reviews keep mentioning — with alheira sausage, or plain — made for sharing.</p>
       </div>
       <div style="background: var(--paper); padding: 34px 30px; border-radius: 2px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card5Title">Galão & Homemade Cake</h3>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card5Body">Coffee done properly — galão and café chinesa — next to a slice of homemade cake. Best excuse to linger over the view.</p>
-      </div>
-      <div style="background: var(--pine); padding: 34px 30px; border-radius: 2px; display: flex; flex-direction: column; justify-content: center;">
-        <h3 class="display" style="font-size: 22px; margin: 0 0 10px; color: var(--paper);" data-i18n="card6Title">Ask about today's specials</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: color-mix(in oklch, var(--paper) 85%, transparent); margin: 0 0 18px;" data-i18n="card6Body">Menu changes with the season and the catch. Give us a call before you make the drive up.</p>
-        <a href="tel:+351291952319" class="btn btn-outline" style="align-self: flex-start; padding: 11px 22px; font-size: 14px;" data-i18n="card6Btn">Call +351 291 952 319</a>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.6" stroke-linejoin="round"><path d="M7 12c2.5-4 6-6 11-6-1 2-1 4 0 6-1 2-1 4 0 6-5 0-8.5-2-11-6z"/><path d="M7 12L2.5 8.5v7z"/><circle cx="14" cy="11" r="0.8" fill="var(--terracotta)"/></svg>
+        <h3 class="display" style="font-size: 24px; margin: 18px 0 8px; color: var(--ink);" data-i18n="card3Title">Espada &amp; Bacalhau</h3>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0;" data-i18n="card3Body">Black scabbardfish — Madeira's deep-water fish — done the house way, and bacalhau two ways: house-style, or baked with cream. The sea's side of a mountain menu.</p>
       </div>
     </div>
+    <details id="menu-details" class="menu-details">
+      <summary class="menu-summary"><span class="display menu-summary-title" data-i18n="menuListTitle">The full menu</span><span class="menu-summary-hint" data-i18n="menuListHint">with prices</span></summary>
+      <div id="menu-list" class="menu-list"></div>
+      <p class="menu-foot" data-i18n="menuFoot">Prices in euros, as printed on the September 2026 menu · Kids' menu and vegetarian dishes available · Any allergies, please ask a member of staff · Questions or a big group? Call +351 291 952 319</p>
+    </details>
+    <details id="drinks-details" class="menu-details">
+      <summary class="menu-summary"><span class="display menu-summary-title" data-i18n="drinksListTitle">Drinks</span><span class="menu-summary-hint" data-i18n="drinksListHint">poncha, nikita, coffee, beer, wine</span></summary>
+      <div id="drinks-list" class="menu-list"></div>
+      <p class="menu-foot" data-i18n="drinksFoot">Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try</p>
+    </details>
     <div class="duo-photos" style="display: flex; justify-content: center; align-items: flex-start; gap: 26px; flex-wrap: wrap; margin-top: 56px;">
       <figure>
         <img src="images/drinks.jpg" alt="Two cold drinks on a terrace table, mountains behind" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px;">
@@ -212,6 +235,7 @@
         <img src="images/coffee.jpg" alt="Espresso from Cafés TOFA with the valley behind" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px;">
         <figcaption data-i18n="duoCoffeeCaption">Coffee done properly, view included</figcaption>
       </figure>
+    </div>
     </div>
   </div>
 </div>
@@ -397,27 +421,296 @@
 </div>
 
 <script>
+// Full menu — transcribed from the printed table vinyl (printed September 2026; checked against photos of the printed vinyl).
+// Each item: [Portuguese name (shown in both languages), English line (EN only), price in €].
+// Category titles: { pt, en }. Edit prices here only; the list below renders from this.
+var MENU = [
+  { pt: 'Entradas', en: 'Starters', items: [
+    ['Bolo do Caco com Manteiga de Alho', 'Madeiran flatbread with garlic butter', 4.50, 1],
+    ['Fondue de Queijo e Alheira', 'Cheese fondue with alheira (Portuguese smoked sausage)', 19.00],
+    ['Croquetes de Bacalhau (por unidade)', 'Salt-cod croquettes, each', 2.10],
+    ['Polvo ao Alho', 'Octopus with garlic', 15.00],
+    ['Polvo à Galega', 'Galician-style octopus', 16.00],
+    ['Camarão ao Alho', 'Garlic prawns', 9.50]
+  ]},
+  { pt: 'Sopas', en: 'Soups', items: [
+    ['Sopa do Dia', 'Soup of the day', 7.50],
+    ['Açorda', 'Bread soup with thyme, egg and olive oil', 6.80]
+  ]},
+  { pt: 'Carnes', en: 'Meat', items: [
+    ['Espetada de Carne de Vaca', 'Beef skewer', 15.00, 1],
+    ['Picado de Carne de Vaca – Médio', 'Picado — garlic-fried beef pieces on a platter to share, medium', 18.00, 1],
+    ['Picado de Carne de Vaca – Grande', 'Picado — garlic-fried beef pieces on a platter to share, large', 29.00, 1],
+    ['Picado de Frango – Médio', 'Chicken picado to share, medium', 16.50],
+    ['Picado de Frango – Grande', 'Chicken picado to share, large', 28.00],
+    ['Bife do Lombo à Pimenta Verde', 'Fillet steak with green peppercorn sauce', 18.50],
+    ['Bife do Lombo com Cogumelos', 'Fillet steak with mushrooms', 19.00],
+    ['Bife à Portuguesa', 'Portuguese-style steak', 19.00],
+    ['Bife Grelhado', 'Grilled steak', 17.00],
+    ['Escalope (Empanado de Frango + Batata Frita e Salada)', 'Breaded chicken escalope with chips and salad', 16.50],
+    ['Peito de Frango Grelhado', 'Grilled chicken breast', 15.00],
+    ['Peito de Frango Grelhado com Cogumelos', 'Grilled chicken breast with mushrooms', 18.00],
+    ['Frango Assado com Batata Frita e Salada', 'Roast chicken with chips and salad', 18.00]
+  ]},
+  { pt: 'Peixes', en: 'Fish', items: [
+    ['Bife de Atum', 'Tuna steak', 18.50],
+    ['Bacalhau à Moda da Casa', 'House-style salt cod', 25.00],
+    ['Bacalhau com Natas', 'Salt cod baked with cream and potato', 18.50],
+    ['Espada à Moda da Casa', 'Black scabbardfish, house style', 22.00, 1]
+  ]},
+  { pt: 'Massas', en: 'Pasta', items: [
+    ['Lasanha', 'Lasagne', 14.00],
+    ['Esparguete à Bolonhesa', 'Spaghetti bolognese', 9.50]
+  ]},
+  { pt: 'Menu Vegetariano', en: 'Vegetarian', items: [
+    ['Lasanha Vegetariana', 'Vegetable lasagne', 13.90],
+    ['Esparguete com Tomate', 'Spaghetti with tomato sauce', 7.50],
+    ['Fondue de Queijo', 'Cheese fondue', 19.00]
+  ]},
+  { pt: 'Saladas', en: 'Salads', items: [
+    ['Atum', 'Tuna salad', 14.00],
+    ['Frango', 'Chicken salad', 14.00],
+    ['Caprese de Tomate Mozzarella', 'Tomato and mozzarella', 12.00],
+    ['Mista – Pequena', 'Mixed salad, small', 5.90],
+    ['Mista – Grande', 'Mixed salad, large', 7.90]
+  ]},
+  { pt: 'Omeletes', en: 'Omelettes', note: { pt: 'Servidas com batata frita e salada', en: 'Served with chips and salad' }, items: [
+    ['Queijo e Fiambre', 'Cheese and ham', 9.50],
+    ['Queijo', 'Cheese', 8.50]
+  ]},
+  { pt: 'Pizza', en: 'Pizza', items: [
+    ['Margarita (Tomate, Orégãos e Queijo)', 'Tomato, oregano and cheese', 13.50],
+    ['Prosciutto (Tomate, Orégãos, Fiambre e Queijo)', 'Tomato, oregano, ham and cheese', 15.00]
+  ]},
+  { pt: 'Sandes', en: 'Sandwiches', items: [
+    ['Sandes Mista de Queijo e Fiambre', 'Cheese and ham', 5.80],
+    ['Sandes de Queijo ou Fiambre', 'Cheese or ham', 4.50],
+    ['Sandes de Omelete', 'Omelette', 6.50],
+    ['Sandes de Atum', 'Tuna', 6.90],
+    ['Sandes de Frango', 'Chicken', 6.50],
+    ['Escalope de Frango com Queijo + Mayo e Salada', 'Chicken escalope with cheese, mayo and salad', 9.50]
+  ]},
+  { pt: 'Tostas', en: 'Toasties', items: [
+    ['Tosta Mista de Queijo e Fiambre', 'Cheese and ham', 4.00],
+    ['Tosta de Queijo ou Fiambre', 'Cheese or ham', 3.00],
+    ['Tosta de Frango', 'Chicken', 5.90],
+    ['Torrada com Manteiga', 'Toast with butter', 1.30]
+  ]},
+  { pt: 'Pregos', en: 'Pregos & burgers', items: [
+    ['Prego Simples', 'Steak in a bread roll', 5.00],
+    ['Prego Especial com Ovo', 'Steak roll with a fried egg', 9.50],
+    ['Bifana', 'Marinated pork roll', 7.50],
+    ['Cheeseburger', '', 5.00],
+    ['Double Cheeseburger Special', '', 9.50]
+  ]},
+  { pt: 'Doses', en: 'Sides', items: [
+    ['Batata Frita', 'Chips', 5.00],
+    ['Batata Frita Salteada (Orégãos, sal e alho)', 'Sautéed chips with oregano, salt and garlic', 6.00],
+    ['Batata Doce', 'Sweet potato', 7.00],
+    ['Arroz', 'Rice', 5.00],
+    ['Cogumelos Salteados', 'Sautéed mushrooms', 6.50],
+    ['Milho Frito', 'Crisp fried cornmeal cubes', 5.00, 1]
+  ]},
+  { pt: 'Menu Criança', en: 'Kids', items: [
+    ['Nuggets de Frango com Batatas Fritas', 'Chicken nuggets and chips', 8.00]
+  ]},
+  { pt: 'Sobremesas', en: 'Desserts', items: [
+    ['Bolo de Mel', 'Madeira honey cake', 3.50, 1],
+    ['Bolo da Casa', 'Homemade cake', 4.00],
+    ['Pastel de Nata', 'The classic small Portuguese custard tart', 3.00],
+    ['Tarte de Nata', 'Custard tart', 4.50],
+    ['Tarte de Amêndoa', 'Almond tart', 4.80],
+    ['Tarte de Maçã', 'Apple tart', 4.90],
+    ['Vulcão de Chocolate', 'Chocolate fondant', 6.00],
+    ['Mousse de Maracujá', 'Passion fruit mousse', 5.50],
+    ['Tiramisu', '', 6.50],
+    ['Cheesecake', '', 6.50]
+  ]}
+];
+
+// Drinks — transcribed from the printed "Bebidas" card (September 2026). Same shape as MENU; a string price is shown as-is.
+var DRINKS = [
+  { pt: 'Ponchas', en: 'Poncha', note: { pt: 'A bebida da Madeira: aguardente de cana, mel e sumo de fruta', en: "Madeira's own drink — sugar-cane spirit, honey and fruit juice, muddled to order" }, items: [
+    ['Regional', 'The original: lemon, orange and honey', 4.00, 1],
+    ['Pescador', "Fisherman's — lemon and honey", 4.00],
+    ['Verdinha', "Fisherman's with mint", 4.00],
+    ['Limão', 'Lemon', 4.00],
+    ['Maracujá', 'Passion fruit', 4.00],
+    ['Tangerina', 'Tangerine', 4.00],
+    ['Tomate Inglês', 'Tamarillo', 4.00],
+    ['Pitanga', 'Surinam cherry', 4.00],
+    ['Alecrim', 'Rosemary', 4.00]
+  ]},
+  { pt: 'Nikitas', en: 'Nikita', note: { pt: '5,00 € sem álcool · 6,00 € com álcool', en: "Madeira's pineapple and ice-cream drink — 5,00 € without alcohol, 6,00 € with" }, items: [
+    ['Ananás', 'Pineapple', '5,00 / 6,00 €', 1],
+    ['Ananás e Coco', 'Pineapple and coconut', '5,00 / 6,00 €'],
+    ['Coco', 'Coconut', '5,00 / 6,00 €'],
+    ['Maracujá', 'Passion fruit', '5,00 / 6,00 €'],
+    ['Frutos Vermelhos', 'Red fruits', '5,00 / 6,00 €'],
+    ['Morango e Lima', 'Strawberry and lime', '5,00 / 6,00 €'],
+    ['Café', 'Coffee', '5,00 / 6,00 €']
+  ]},
+  { pt: 'Cocktails', en: 'Cocktails', items: [
+    ['Mojito Cubano', '', 7.00],
+    ['Caipirinha', '', 7.00],
+    ['Caipiroska', '', 7.00],
+    ['Cuba Libre', '', 7.00],
+    ['Aperol', 'Aperol spritz', 7.00],
+    ['Tequila Sunrise', '', 7.00],
+    ['Margarita', '', 7.00],
+    ['Pé de Cabra', 'Red wine, stout and chocolate — a Madeiran classic', 6.00, 1]
+  ]},
+  { pt: 'Sumos Naturais', en: 'Fresh juices', items: [
+    ['Laranja', 'Orange', 6.00],
+    ['Limonada', 'Lemonade', 6.00],
+    ['Maracujá', 'Passion fruit', 6.00],
+    ['Frutos Vermelhos', 'Red fruits', 6.00]
+  ]},
+  { pt: 'Cafetaria', en: 'Coffee', items: [
+    ['Bica', 'Espresso', 1.20],
+    ['Garoto', 'Espresso with a dash of milk', 1.20],
+    ['Carioca de Café', 'Weak espresso', 1.20],
+    ['Chinesa', 'Long coffee with milk', 2.40],
+    ['Chino', 'Long black coffee', 2.40],
+    ['Galão', 'Tall milky coffee in a glass', 3.00],
+    ['Cappuccino', '', 4.50],
+    ['Ice Coffee', 'Iced coffee', 4.00],
+    ['Chocolate Quente', 'Hot chocolate', 3.00]
+  ]},
+  { pt: 'Chás', en: 'Teas', items: [
+    ['Preto', 'Black tea', 2.20],
+    ['Verde', 'Green tea', 2.20],
+    ['Camomila', 'Camomile', 2.20],
+    ['Limão', 'Lemon', 2.20],
+    ['Limão e Gengibre', 'Lemon and ginger', 2.20],
+    ['Menta', 'Mint', 2.20],
+    ['Cidreira', 'Lemon balm', 2.20],
+    ['Frutos Vermelhos', 'Red fruits', 2.20],
+    ['Detox', '', 2.20],
+    ['Tília', 'Linden', 2.00]
+  ]},
+  { pt: 'Cervejas', en: 'Beer', items: [
+    ['Fino', 'Draught lager or dark, 20 cl', 2.00],
+    ['Balão', 'Draught lager or dark, 30 cl', 2.50],
+    ['Caneca', 'Draught lager, 50 cl', 5.00],
+    ['Caneca 1 L', 'Draught lager, 1 litre', 8.00],
+    ['Shandy', 'Lager and lemonade, 20 cl', 2.20],
+    ['Shandy Balão', 'Lager and lemonade, 30 cl', 3.00],
+    ['Garrafa 33 cl', 'Bottle, 33 cl', 2.50],
+    ['Garrafa 20 cl', 'Bottle, 20 cl', 2.20],
+    ['Heineken', '', 2.50],
+    ['Puro Malte', 'Pure malt', 3.00],
+    ['Sidra', 'Cider', 3.00],
+    ['Sem Álcool 20 cl', 'Alcohol-free, 20 cl', 2.20],
+    ['Sem Álcool 30 cl', 'Alcohol-free, 30 cl', 2.50]
+  ]},
+  { pt: 'Vinhos', en: 'Wine', items: [
+    ['Vinho a Copo – Rosé, Branco, Tinto, Verde', 'Glass of wine — rosé, white, red or vinho verde', 2.50],
+    ['Sangria – Copo', 'Sangria by the glass', 3.50],
+    ['Sangria – 1 Litro (Rosé, Branco, Tinto, Verde)', 'Sangria, 1 litre — rosé, white, red or vinho verde', 13.00]
+  ]},
+  { pt: 'Vinho Madeira', en: 'Madeira wine', note: { pt: 'Ao copo', en: 'By the glass' }, items: [
+    ['Seco', 'Dry', 2.50, 1],
+    ['Seco Blandy\'s', "Dry, Blandy's", 3.00],
+    ['Meio Seco', 'Medium dry', 2.50],
+    ['Meio Seco Blandy\'s', "Medium dry, Blandy's", 3.00],
+    ['Meio Doce', 'Medium sweet', 2.50],
+    ['Meio Doce Blandy\'s', "Medium sweet, Blandy's", 3.00],
+    ['Doce', 'Sweet', 2.50],
+    ['Doce Blandy\'s', "Sweet, Blandy's", 3.00]
+  ]},
+  { pt: 'Vinho do Porto', en: 'Port', items: [
+    ['Borges Ruby', '', 3.00],
+    ['Borges Tawny', '', 3.00],
+    ['Borges White', '', 3.00]
+  ]},
+  { pt: 'Licores', en: 'Liqueurs & spirits', items: [
+    ['Licor de Aniz', 'Anise liqueur', 2.00],
+    ['Ginja', 'Sour-cherry liqueur', 2.50],
+    ['Macieira Cream', '', 2.50],
+    ['Macia da Casa', 'House liqueur', 2.50],
+    ['Fernet Branca', '', 2.50],
+    ['Sambuca', '', 2.50],
+    ['Amêndoa Amarga', 'Bitter almond liqueur', 3.00],
+    ['Licor Beirão', '', 3.00],
+    ['Café da Avó', 'Coffee liqueur', 3.00],
+    ['Amaretto', '', 3.00],
+    ['Frangelico', '', 3.00],
+    ['Jägermeister', '', 3.00],
+    ['Kahlúa', '', 3.00],
+    ['Tia Maria', '', 3.00],
+    ['Licor 43', '', 3.00],
+    ['Baileys', '', 3.50],
+    ['Cointreau', '', 3.50],
+    ['Carolan\'s', '', 3.50],
+    ['Grand Marnier', '', 4.00]
+  ]},
+  { pt: 'Sumos e Refrigerantes', en: 'Soft drinks', items: [
+    ['Coca-Cola', '', 3.00],
+    ['Coca-Cola Zero', '', 3.00],
+    ['7UP', '', 3.00],
+    ['Ice Tea – Limão, Pêssego, Manga e Ananás', 'Iced tea — lemon, peach, mango or pineapple', 3.00],
+    ['Compal', 'Still fruit juice', 3.00],
+    ['Laranjada', 'Sparkling orange', 3.00],
+    ['Brisa Maçã', "Madeira's sparkling apple", 3.00, 1],
+    ['Brisa Maracujá', "Madeira's sparkling passion fruit", 3.00, 1],
+    ['Ucal', 'Chocolate milk', 3.00]
+  ]},
+  { pt: 'Águas', en: 'Water', items: [
+    ['Água sem Gás 50 cl', 'Still, 50 cl', 1.50],
+    ['Água sem Gás 1,5 L', 'Still, 1.5 litre', 2.50],
+    ['Água com Gás 25 cl', 'Sparkling, 25 cl', 2.20],
+    ['Água com Gás 1,5 L', 'Sparkling, 1.5 litre', 3.50],
+    ['Frize 25 cl', 'Lemon-flavoured sparkling water', 2.20],
+    ['Tónica 25 cl', 'Tonic water', 2.20]
+  ]}
+];
+
+function renderMenu(lang) {
+  renderList('menu-list', MENU, lang);
+  renderList('drinks-list', DRINKS, lang);
+}
+function renderList(id, data, lang) {
+  var root = document.getElementById(id);
+  if (!root) return;
+  var html = '';
+  data.forEach(function (cat) {
+    html += '<div class="menu-cat"><h3 class="display menu-cat-title">' + (lang === 'pt' ? cat.pt : cat.en) + '</h3>';
+    if (cat.note) html += '<div class="menu-cat-note">' + (lang === 'pt' ? cat.note.pt : cat.note.en) + '</div>';
+    cat.items.forEach(function (it) {
+      var price = typeof it[2] === 'number' ? it[2].toFixed(2).replace('.', ',') + ' €' : it[2];
+      html += '<div class="menu-item"><div class="menu-item-text"><span class="menu-item-name">' + it[0] + (it[3] ? '<span class="menu-tag">' + (content[lang] || content.en).menuTag + '</span>' : '') + '</span>';
+      if (lang !== 'pt' && it[1]) html += '<span class="menu-item-desc">' + it[1] + '</span>';
+      html += '</div><span class="menu-item-price">' + price + '</span></div>';
+    });
+    html += '</div>';
+  });
+  root.innerHTML = html;
+}
+
 var content = {
   en: {
-    navPass: 'The Pass', navMenu: 'Menu', navReviews: 'Reviews', navVisit: 'Visit',
+    navPass: 'The Pass', navMenu: 'Menu', navReviews: 'Reviews', navVisit: 'Visit', navCall: 'Call',
     heroEyebrow: 'Serra de Água · Madeira · 1000m above the sea',
     ctaVisit: 'Plan your visit', ctaMenu: 'See the menu',
     hoursStrip: 'Open Mon–Sat 8:30–19:30 · Closed Sundays',
     ratingStrip: '4.6 · 600+ reviews on Google',
     aboutEyebrow: 'About Us',
-    aboutBody: "A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Poncha is what we're known for — traditional, muddled to order, the proper way — though plenty of visitors say the espetada and the view give it a run for its money. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.",
+    aboutBody: "A family-run bar and restaurant, perched right at the highest point of the road linking Madeira's two coastlines. Known for the espetada and the view — and a proper poncha for whoever isn't driving. We're a regular stop for jeep tours and road-trippers crossing the island's interior: about 40 minutes up from Funchal, or 15 minutes over the ridge from São Vicente.",
     storyEyebrow: 'The Pass', storyTitle: "Where the north coast meets the south",
     storyP1: "The pass sits in a sea of laurisilva, the UNESCO-listed laurel forest that once covered southern Europe and survives here on every slope. Step off the terrace and you're at the trailhead for some of Madeira's best-loved levada walks — the Vereda da Encumeada and the Caminho do Pináculo e Folhadal both start nearby.",
     storyP2: "We've set up right at that viewpoint — a terrace of wooden tables under the awning, the mountains dropping away on both sides, and a kitchen turning out the kind of food that makes people pull over a second time on the way back down.",
-    menuEyebrow: 'On the Grill', menuTitle: 'Simple, honest Madeiran food',
-    menuIntro: "No fuss and no shortcuts — espetada over the fire, poncha muddled at the bar, and cake that tastes homemade because it is. Here's what regulars come back for.",
-    card1Title: 'Espetada', card1Body: "Skewered beef, grilled over the open fire the traditional way. Reviewers have called it the best on the island — we're not going to argue.",
-    card2Title: 'Fresh Poncha', card2Body: "Madeira's traditional muddled spirit, made to order — the proper way to toast a mountain view. Fresh passion fruit juice for the non-drinkers.",
-    card3Title: 'Pepper Steak & Fondue', card3Body: "A hearty pepper steak, and a cheese fondue that keeps coming up in reviews — good sharing food after a levada walk.",
-    card4Title: 'Sandwiches & Soups', card4Body: "Chicken and steak sandwiches, tomato and fish soup — simple, generous, made for hikers coming off the trail hungry.",
-    card5Title: 'Galão & Homemade Cake', card5Body: "Coffee done properly — galão and café chinesa — next to a slice of homemade cake. Best excuse to linger over the view.",
-    card6Title: "Ask about today's specials", card6Body: "Menu changes with the season and the catch. Give us a call before you make the drive up.", card6Btn: 'Call +351 291 952 319',
+    menuEyebrow: 'The Menu', menuTitle: 'Simple, honest Madeiran food',
+    menuIntro: "No fuss and no shortcuts — espetada and picado, bolo do caco with garlic butter, bacalhau and espada, and cake that tastes homemade because it is. Every dish, drink and price is below.",
+    card1Title: 'Espetada & Picado', card1Body: "Beef on the skewer, and picado — garlic-fried beef pieces on a platter to share. The two Madeiran classics; one reviewer called our espetada the best they'd ever had.",
+    card2Title: 'Bolo do Caco & Fondue', card2Body: "Madeiran flatbread with garlic butter to start, and the cheese fondue the reviews keep mentioning — with alheira sausage, or plain — made for sharing.",
+    card3Title: 'Espada & Bacalhau', card3Body: "Black scabbardfish — Madeira's deep-water fish — done the house way, and bacalhau two ways: house-style, or baked with cream. The sea's side of a mountain menu.",
+    menuListTitle: 'The full menu', menuListHint: 'with prices',
+    menuFoot: "Prices in euros, as printed on the September 2026 menu · Kids' menu and vegetarian dishes available · Any allergies, please ask a member of staff · Questions or a big group? Call +351 291 952 319",
+    menuTag: 'Madeiran',
     duoDrinksCaption: 'Something cold for the terrace', duoCoffeeCaption: 'Coffee done properly, view included',
+    drinksListTitle: 'Drinks', drinksListHint: 'poncha, nikita, coffee, beer, wine',
+    drinksFoot: "Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try",
     nearbyEyebrow: "While You're Up Here", nearbyTitle: 'Make a day of the pass',
     nearbyIntro: "Some of Madeira's best walking, viewpoints and coastline sit within half an hour of our terrace. Park once, eat well, explore from here.",
     nb1Meta: 'Right outside', nb1Title: 'Boca da Encumeada Viewpoint', nb1Body: "The classic viewpoint over the Serra de Água valley is steps from our terrace — on a clear day, both coasts at once.",
@@ -444,25 +737,27 @@ var content = {
     directionsBtn: 'Get directions', footerClosed: 'Mon–Sat 8:30–19:30 · Closed Sundays'
   },
   pt: {
-    navPass: 'A Serra', navMenu: 'Ementa', navReviews: 'Opiniões', navVisit: 'Visitar',
+    navPass: 'A Serra', navMenu: 'Ementa', navReviews: 'Opiniões', navVisit: 'Visitar', navCall: 'Ligar',
     heroEyebrow: 'Serra de Água · Madeira · a 1000m de altitude',
     ctaVisit: 'Planeie a sua visita', ctaMenu: 'Ver a ementa',
     hoursStrip: 'Aberto de segunda a sábado, das 8:30 às 19:30 · Encerrado aos domingos',
     ratingStrip: '4.6 · Mais de 600 opiniões no Google',
     aboutEyebrow: 'Sobre Nós',
-    aboutBody: 'Um bar e restaurante familiar, instalado mesmo no ponto mais alto da estrada que liga as duas costas da Madeira. A poncha é a nossa marca — tradicional, batida na hora, como deve ser — mas há quem diga que a espetada e a vista lhe fazem frente. Somos paragem habitual de jipes turísticos e de quem atravessa o interior da ilha: cerca de 40 minutos a subir desde o Funchal, ou 15 minutos a descer a serra desde São Vicente.',
+    aboutBody: 'Um bar e restaurante familiar, instalado mesmo no ponto mais alto da estrada que liga as duas costas da Madeira. Conhecidos pela espetada e pela vista — e por uma poncha como deve ser, para quem não vai ao volante. Somos paragem habitual de jipes turísticos e de quem atravessa o interior da ilha: cerca de 40 minutos a subir desde o Funchal, ou 15 minutos a descer a serra desde São Vicente.',
     storyEyebrow: 'A Serra', storyTitle: 'Onde a costa norte encontra a costa sul',
     storyP1: 'O passo fica no meio de um mar de Laurissilva, a floresta de louros classificada pela UNESCO que em tempos cobriu o sul da Europa e que aqui sobrevive em todas as encostas. A dois passos do terraço começam alguns dos percursos de levada mais queridos da ilha — a Vereda da Encumeada e o Caminho do Pináculo e Folhadal.',
     storyP2: 'Instalámo-nos mesmo neste miradouro — um terraço de mesas de madeira sob o telheiro, a serra a cair para os dois lados, e uma cozinha que faz as pessoas pararem uma segunda vez na descida.',
-    menuEyebrow: 'Na Brasa', menuTitle: 'Comida madeirense simples e genuína',
-    menuIntro: 'Sem pressas nem atalhos — espetada na brasa, poncha batida ao balcão, e bolo que sabe a caseiro porque é mesmo. Aqui fica o que faz os habituais voltarem.',
-    card1Title: 'Espetada', card1Body: 'Carne no espeto, grelhada na brasa à moda tradicional. Há quem diga que é a melhor da ilha — nós não discordamos.',
-    card2Title: 'Poncha Fresca', card2Body: 'A bebida tradicional da Madeira, batida na hora — a forma certa de brindar a uma vista destas. E sumo de maracujá fresco para quem não bebe.',
-    card3Title: 'Bife ao Molho de Pimenta & Fondue', card3Body: 'Um bife ao molho de pimenta bem servido, e um fondue de queijo sempre presente nas opiniões — ótimo para partilhar depois de uma caminhada pela levada.',
-    card4Title: 'Sandes & Sopas', card4Body: 'Sandes de frango e de bife, sopa de tomate e sopa de peixe — simples, generosas, feitas para caminheiros com fome.',
-    card5Title: 'Galão & Bolo Caseiro', card5Body: 'Café como deve ser — galão e chinesa — ao lado de uma fatia de bolo caseiro. A melhor desculpa para demorar mais um pouco a apreciar a vista.',
-    card6Title: 'Pergunte pelos pratos do dia', card6Body: 'A ementa muda com a época e a pesca do dia. Ligue antes de subir a serra.', card6Btn: 'Ligar +351 291 952 319',
+    menuEyebrow: 'A Ementa', menuTitle: 'Comida madeirense simples e genuína',
+    menuIntro: 'Sem complicações nem atalhos — espetada e picado, bolo do caco com manteiga de alho, bacalhau e espada, e bolo que sabe a caseiro porque é mesmo. Todos os pratos, bebidas e preços, aqui em baixo.',
+    card1Title: 'Espetada & Picado', card1Body: 'Espetada de carne de vaca e picado para partilhar — os dois clássicos madeirenses. Há quem diga que a nossa espetada é a melhor que já comeu.',
+    card2Title: 'Bolo do Caco & Fondue', card2Body: 'Bolo do caco com manteiga de alho para começar, e o fondue de queijo de que tanto se fala nas opiniões — com alheira ou simples — feito para partilhar.',
+    card3Title: 'Espada & Bacalhau', card3Body: 'Espada preta à moda da casa, e bacalhau de duas maneiras — o nosso, ou com natas. Sabores do mar numa ementa de serra.',
+    menuListTitle: 'A ementa completa', menuListHint: 'com preços',
+    menuFoot: 'Preços em euros, conforme a ementa de setembro de 2026 · Temos menu de criança e pratos vegetarianos · Alergias? Fale com a equipa · Dúvidas ou grupos grandes? Ligue-nos: +351 291 952 319',
+    menuTag: 'Madeirense',
     duoDrinksCaption: 'Algo fresco para a esplanada', duoCoffeeCaption: 'Café como deve ser, com vista incluída',
+    drinksListTitle: 'Bebidas', drinksListHint: 'ponchas, nikitas, café, cerveja, vinho',
+    drinksFoot: 'Preços em euros, conforme a carta de bebidas de setembro de 2026',
     nearbyEyebrow: 'Já Que Está Por Cima', nearbyTitle: 'Faça um dia inteiro da encumeada',
     nearbyIntro: 'Alguns dos melhores passeios, miradouros e troços de costa da Madeira ficam a menos de meia hora da nossa esplanada. Estacione uma vez, coma bem, explore a partir daqui.',
     nb1Meta: 'Mesmo aqui', nb1Title: 'Miradouro da Boca da Encumeada', nb1Body: 'O miradouro clássico sobre o vale da Serra de Água fica a dois passos da esplanada — em dia limpo, as duas costas ao mesmo tempo.',
@@ -499,6 +794,7 @@ function setLang(lang) {
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
   document.documentElement.setAttribute('lang', lang);
+  renderMenu(lang);
   try { localStorage.setItem('boca-lang', lang); } catch (e) {}
 }
 
@@ -507,6 +803,12 @@ function setLang(lang) {
   try { saved = localStorage.getItem('boca-lang'); } catch (e) {}
   var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
   setLang(initial);
+  // Full price list: open on desktop, one tap away on phones.
+  var d = document.getElementById('menu-details');
+  var wide = window.matchMedia && window.matchMedia('(min-width: 861px)').matches;
+  if (d && wide) d.open = true;
+  var dd = document.getElementById('drinks-details');
+  if (dd && wide) dd.open = true;
 })();
 </script>
 </body>
