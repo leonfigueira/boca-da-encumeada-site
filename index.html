@@ -104,7 +104,7 @@
     .visit-grid { grid-template-columns: 1fr !important; gap: 44px; }
     .map-frame { height: 300px; }
     .duo-photos { gap: 12px !important; }
-    .duo-photos img { height: 220px !important; }
+    .duo-photos img, .duo-photos video { height: 220px !important; }
     .nav-links { display: none !important; }
     .nav-phone-num { display: none; }
     .nav-phone-short { display: inline; }
@@ -227,6 +227,10 @@
       <p class="menu-foot" data-i18n="drinksFoot">Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try</p>
     </details>
     <div class="duo-photos" style="display: flex; justify-content: center; align-items: flex-start; gap: 26px; flex-wrap: wrap; margin-top: 56px;">
+      <figure>
+        <video poster="images/poncha-sunset-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Sunset over a sea of clouds at the pass, a glass of poncha raised to the view" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px; display: block; background: var(--ink);"><source src="images/poncha-sunset.mp4" type="video/mp4"><source src="images/poncha-sunset.webm" type="video/webm"></video>
+        <figcaption data-i18n="duoVideoCaption">Sunset over the clouds, poncha in hand</figcaption>
+      </figure>
       <figure>
         <img src="images/drinks.jpg" alt="Two cold drinks on a terrace table, mountains behind" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px;">
         <figcaption data-i18n="duoDrinksCaption">Something cold for the terrace</figcaption>
@@ -708,7 +712,7 @@ var content = {
     menuListTitle: 'The full menu', menuListHint: 'with prices',
     menuFoot: "Prices in euros, as printed on the September 2026 menu · Kids' menu and vegetarian dishes available · Any allergies, please ask a member of staff · Questions or a big group? Call +351 291 952 319",
     menuTag: 'Madeiran',
-    duoDrinksCaption: 'Something cold for the terrace', duoCoffeeCaption: 'Coffee done properly, view included',
+    duoVideoCaption: 'Sunset over the clouds, poncha in hand', duoDrinksCaption: 'Something cold for the terrace', duoCoffeeCaption: 'Coffee done properly, view included',
     drinksListTitle: 'Drinks', drinksListHint: 'poncha, nikita, coffee, beer, wine',
     drinksFoot: "Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try",
     nearbyEyebrow: "While You're Up Here", nearbyTitle: 'Make a day of the pass',
@@ -755,7 +759,7 @@ var content = {
     menuListTitle: 'A ementa completa', menuListHint: 'com preços',
     menuFoot: 'Preços em euros, conforme a ementa de setembro de 2026 · Temos menu de criança e pratos vegetarianos · Alergias? Fale com a equipa · Dúvidas ou grupos grandes? Ligue-nos: +351 291 952 319',
     menuTag: 'Madeirense',
-    duoDrinksCaption: 'Algo fresco para a esplanada', duoCoffeeCaption: 'Café como deve ser, com vista incluída',
+    duoVideoCaption: 'Pôr do sol sobre as nuvens, poncha na mão', duoDrinksCaption: 'Algo fresco para a esplanada', duoCoffeeCaption: 'Café como deve ser, com vista incluída',
     drinksListTitle: 'Bebidas', drinksListHint: 'ponchas, nikitas, café, cerveja, vinho',
     drinksFoot: 'Preços em euros, conforme a carta de bebidas de setembro de 2026',
     nearbyEyebrow: 'Já Que Está Por Cima', nearbyTitle: 'Faça um dia inteiro da encumeada',
