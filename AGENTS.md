@@ -45,7 +45,7 @@ the working method. This file adds the specifics.
 
 ## Publishing rule
 
-`wrangler deploy` publishes to the live public site (Leon's parents' business). Do NOT deploy.
-Prepare and verify, copy into `dist/`, show Leon the diff and any menu/price/copy change, and let
-Leon deploy. Every publish and every customer-facing string is drafted and shown to Leon first.
+`wrangler deploy` publishes to the live public site (Leon's parents' business). Prepare and verify,
+copy into `dist/`, show Leon the diff and any menu/price/copy change. Once Leon says go in chat,
+run the deploy yourself (he expects this, 2026-09-22); his go-ahead covers that one publish only. Every publish and every customer-facing string is drafted and shown to Leon first.
 No em dashes.
