@@ -28,7 +28,10 @@ the working method. This file adds the specifics.
 - `dist/` is what `wrangler deploy` uploads: `dist/index.html` + `dist/images/`. It is kept
   separate so `wrangler.jsonc` is not served. AFTER editing `index.html` or `images/`, copy them
   into `dist/` before any deploy (`cp index.html dist/index.html`).
-- Deploy (do NOT run this yourself, see below): `cp index.html dist/index.html` then
+- Deploy on this Mac (verified 2026-09-22): `cp index.html dist/index.html` then `npx -y wrangler@latest deploy`
+  from the repo root. The saved wrangler OAuth login (~/Library/Preferences/.wrangler) is enough, no
+  token needed. "No targets deployed" in the output is normal (domains are bound separately); check
+  with `curl -s https://bocadaencumeada.com | grep '<title>'`. Token route, if the login ever expires: `cp index.html dist/index.html` then
   `CLOUDFLARE_API_TOKEN=<token> CLOUDFLARE_ACCOUNT_ID=6cc585c7a88587893be0a6d58fa83eca wrangler deploy`.
   The custom domain is bound via a direct API call, not wrangler routes; token IP restrictions and
   the full gotchas are in `HANDOFF.md`.
