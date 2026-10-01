@@ -859,29 +859,53 @@ function initGallery() {
   }
   function maxScroll() { return track.scrollWidth - track.clientWidth; }
 
-  var dots = items.map(function (it, i) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'gallery-dot';
-    b.setAttribute('aria-label', 'Show photo ' + (i + 1) + ' of ' + items.length);
-    b.addEventListener('click', function () { hold(); track.scrollTo({ left: i * step(), behavior: 'smooth' }); });
-    if (dotsWrap) dotsWrap.appendChild(b);
-    return b;
-  });
+  var dots = [];
+  function colCount() {
+    var c = parseInt(getComputedStyle(track).getPropertyValue('--cols'), 10);
+    if (c > 0) return c;
+    return Math.max(1, Math.round(track.clientWidth / (step() || 1)));
+  }
+  // One dot per reachable scroll position, not one per photo: with four tiles
+  // on screen the last three can never sit at the left edge.
+  function pageCount() { return Math.max(1, items.length - colCount() + 1); }
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    var n = pageCount();
+    if (dots.length === n) return;
+    dotsWrap.innerHTML = '';
+    dots = [];
+    for (var i = 0; i < n; i++) {
+      (function (idx) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'gallery-dot';
+        b.setAttribute('aria-label', 'Scroll the gallery to position ' + (idx + 1) + ' of ' + n);
+        b.addEventListener('click', function () {
+          hold();
+          track.scrollTo({ left: Math.min(idx * step(), maxScroll()), behavior: 'smooth' });
+        });
+        dotsWrap.appendChild(b);
+        dots.push(b);
+      })(i);
+    }
+  }
+  buildDots();
 
   var raf = 0;
   function sync() {
     if (raf) return;
     raf = requestAnimationFrame(function () {
       raf = 0;
-      var i = Math.min(items.length - 1, Math.round(track.scrollLeft / (step() || 1)));
+      var i = Math.min(dots.length - 1, Math.round(track.scrollLeft / (step() || 1)));
+      if (track.scrollLeft >= maxScroll() - 2) i = dots.length - 1;
       dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
       if (prev) prev.disabled = track.scrollLeft <= 2;
       if (next) next.disabled = track.scrollLeft >= maxScroll() - 2;
     });
   }
   track.addEventListener('scroll', sync, { passive: true });
-  window.addEventListener('resize', sync);
+  window.addEventListener('resize', function () { buildDots(); sync(); });
 
   // Auto-advance, with every reason to leave the visitor alone.
   var timer = null, paused = false, onScreen = false, heldUntil = 0;
