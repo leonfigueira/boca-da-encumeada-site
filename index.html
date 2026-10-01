@@ -49,8 +49,21 @@
   .photo-band { position: relative; width: 100%; aspect-ratio: 2.4 / 1; min-height: 300px; max-height: 62vh; overflow: hidden; }
   .visit-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: start; }
   .map-frame { width: 100%; height: 380px; border: 0; border-radius: 2px; display: block; }
-  .duo-photos figure { margin: 0; }
-  .duo-photos figcaption { font-size: 13.5px; color: var(--ink-soft); margin-top: 12px; text-align: center; letter-spacing: 0.04em; }
+  .gallery { position: relative; margin-top: 56px; }
+  .gallery-track { --cols: 4; --gap: 14px; display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-item { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); margin: 0; scroll-snap-align: start; }
+  .gallery-item img, .gallery-item video { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; display: block; background: var(--ink); }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 42px; height: 42px; border-radius: 50%; border: none; padding: 0; background: color-mix(in oklch, var(--paper) 88%, transparent); color: var(--ink); box-shadow: 0 6px 18px -6px oklch(20% 0.03 55 / 0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s ease, background 0.2s ease; }
+  .gallery-arrow:hover { background: var(--paper); }
+  .gallery-arrow:disabled { opacity: 0; pointer-events: none; }
+  .gallery-prev { left: 8px; }
+  .gallery-next { right: 8px; }
+  .gallery-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+  .gallery-dot { width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer; background: color-mix(in oklch, var(--ink) 22%, transparent); transition: background 0.2s ease; }
+  .gallery-dot.active { background: var(--terracotta); }
+  @media (max-width: 1099px) { .gallery-track { --cols: 3; } }
+  @media (max-width: 700px) { .gallery-track { --cols: 2; --gap: 10px; } }
   .nearby-card { transition: box-shadow 0.2s ease, transform 0.2s ease; }
   .nearby-card:hover { box-shadow: 0 16px 34px -14px oklch(20% 0.03 55 / 0.4); transform: translateY(-2px); color: inherit; }
   .stars { position: relative; display: inline-block; letter-spacing: 2px; font-size: 16px; line-height: 1; }
@@ -90,7 +103,6 @@
     .hero-h1 { display: none; }
     .hero-text { display: none; }
   }
-  @media (max-width: 380px) { .menu-summary-hint { white-space: normal !important; } }
   @media (min-width: 861px) and (max-width: 1240px) {
     .nav-brand { font-size: 28px !important; white-space: nowrap; }
     .nav-links { gap: 22px !important; font-size: 15px !important; white-space: nowrap; }
@@ -116,9 +128,8 @@
     .grid-3 { grid-template-columns: 1fr !important; }
     .visit-grid { grid-template-columns: 1fr !important; gap: 44px; }
     .map-frame { height: 300px; }
-    .duo-photos { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px !important; }
-    .duo-photos img, .duo-photos video { width: 100% !important; height: auto !important; aspect-ratio: 9 / 16; object-fit: cover; }
-    .duo-photos figcaption { font-size: 12px; letter-spacing: 0.01em; margin-top: 8px; line-height: 1.35; }
+    .gallery { margin-top: 44px; }
+    .gallery-arrow { display: none; }
     .brand-pre { display: block; font-size: 14px; letter-spacing: 0.04em; line-height: 1.1; }
     .nav-bar { padding: 14px 20px !important; gap: 12px; }
     .nav-brand { font-size: 20px !important; line-height: 1.15; }
@@ -126,7 +137,6 @@
     .nav-phone-num { display: none; }
     .nav-phone-short { display: inline; }
     .menu-summary-title { font-size: 28px; }
-    .menu-summary-hint { white-space: nowrap; }
   }
 </style>
 </head>
@@ -243,19 +253,39 @@
       <div id="drinks-list" class="menu-list"></div>
       <p class="menu-foot" data-i18n="drinksFoot">Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try</p>
     </details>
-    <div class="duo-photos" style="display: flex; justify-content: center; align-items: flex-start; gap: 26px; flex-wrap: wrap; margin-top: 56px;">
-      <figure>
-        <video poster="images/poncha-sunset-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Sunset over a sea of clouds at the pass, a glass of poncha raised to the view" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px; display: block; background: var(--ink);"><source src="images/poncha-sunset.mp4" type="video/mp4"><source src="images/poncha-sunset.webm" type="video/webm"></video>
-        <figcaption data-i18n="duoVideoCaption">Sunset over the clouds, poncha in hand</figcaption>
+    <div class="gallery" id="gallery">
+      <div class="gallery-track" id="gallery-track">
+      <figure class="gallery-item">
+        <video poster="images/poncha-sunset-poster.jpg" muted loop playsinline preload="none" aria-label="Sunset over a sea of clouds at the pass, a glass of poncha raised to the view"><source src="images/poncha-sunset.mp4" type="video/mp4"><source src="images/poncha-sunset.webm" type="video/webm"></video>
       </figure>
-      <figure>
-        <img src="images/drinks.jpg" alt="Two cold drinks on a terrace table, mountains behind" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px;">
-        <figcaption data-i18n="duoDrinksCaption">Something cold for the terrace</figcaption>
+      <figure class="gallery-item">
+        <img src="images/g-burger.jpg" loading="lazy" decoding="async" alt="Two house burgers served on a terrace table">
       </figure>
-      <figure>
-        <img src="images/coffee.jpg" alt="Espresso from Cafés TOFA with the valley behind" style="height: 400px; width: auto; max-width: 100%; border-radius: 2px;">
-        <figcaption data-i18n="duoCoffeeCaption">Coffee done properly, view included</figcaption>
+      <figure class="gallery-item">
+        <img src="images/g-coffee-railing.jpg" loading="lazy" decoding="async" alt="A glass of Cafés TOFA coffee resting on the terrace railing, mountains behind">
       </figure>
+      <figure class="gallery-item">
+        <video poster="images/g-burger-making-poster.jpg" muted loop playsinline preload="none" aria-label="A burger being built in the kitchen, the top of the bun going on"><source src="images/g-burger-making.mp4" type="video/mp4"><source src="images/g-burger-making.webm" type="video/webm"></video>
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/g-soup.jpg" loading="lazy" decoding="async" alt="A bowl of soup with a poached egg and fresh thyme, served with bread">
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/g-interior.jpg" loading="lazy" decoding="async" alt="Old wine barrels and ironwork beside the bar inside the snack bar">
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/drinks.jpg" loading="lazy" decoding="async" alt="Two cold drinks on a terrace table, mountains behind">
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/g-coffee-terrace.jpg" loading="lazy" decoding="async" alt="A glass of Cafés TOFA coffee held up in front of the terrace and the valley">
+      </figure>
+      <figure class="gallery-item">
+        <img src="images/g-coffee-bar.jpg" loading="lazy" decoding="async" alt="A glass of coffee on the bar counter, old photographs of the parish on the wall">
+      </figure>
+      </div>
+      <button class="gallery-arrow gallery-prev" id="gallery-prev" type="button" aria-label="Previous photos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="gallery-arrow gallery-next" id="gallery-next" type="button" aria-label="Next photos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="gallery-dots" id="gallery-dots"></div>
     </div>
     </div>
   </div>
@@ -729,7 +759,6 @@ var content = {
     menuListTitle: 'The full menu', menuListHint: 'with prices',
     menuFoot: "Prices in euros, as printed on the September 2026 menu · Kids' menu and vegetarian dishes available · Any allergies, please ask a member of staff · Questions or a big group? Call +351 291 952 319",
     menuTag: 'Madeiran',
-    duoVideoCaption: 'Sunset over the clouds, poncha in hand', duoDrinksCaption: 'Something cold for the terrace', duoCoffeeCaption: 'Coffee done properly, view included',
     drinksListTitle: 'Drinks', drinksListHint: 'poncha, nikita, coffee, beer, wine',
     drinksFoot: "Prices in euros, as printed on the September 2026 drinks card · Poncha and nikita are Madeira's own — ask which one to try",
     nearbyEyebrow: "While You're Up Here", nearbyTitle: 'Make a day of the pass',
@@ -776,7 +805,6 @@ var content = {
     menuListTitle: 'A ementa completa', menuListHint: 'com preços',
     menuFoot: 'Preços em euros, conforme a ementa de setembro de 2026 · Temos menu de criança e pratos vegetarianos · Alergias? Fale com a equipa · Dúvidas ou grupos grandes? Ligue-nos: +351 291 952 319',
     menuTag: 'Madeirense',
-    duoVideoCaption: 'Pôr do sol sobre as nuvens, poncha na mão', duoDrinksCaption: 'Algo fresco para a esplanada', duoCoffeeCaption: 'Café como deve ser, com vista incluída',
     drinksListTitle: 'Bebidas', drinksListHint: 'ponchas, nikitas, café, cerveja, vinho',
     drinksFoot: 'Preços em euros, conforme a carta de bebidas de setembro de 2026',
     nearbyEyebrow: 'Já Que Está Por Cima', nearbyTitle: 'Faça um dia inteiro da encumeada',
@@ -806,6 +834,96 @@ var content = {
   }
 };
 
+function initGallery() {
+  var root = document.getElementById('gallery');
+  var track = document.getElementById('gallery-track');
+  if (!root || !track) return;
+  var items = Array.prototype.slice.call(track.querySelectorAll('.gallery-item'));
+  if (!items.length) return;
+  var dotsWrap = document.getElementById('gallery-dots');
+  var prev = document.getElementById('gallery-prev');
+  var next = document.getElementById('gallery-next');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // One tile plus one gap, measured live so it survives the breakpoints.
+  function step() {
+    var a = items[0].getBoundingClientRect();
+    if (items[1]) return Math.round(items[1].getBoundingClientRect().left - a.left);
+    return Math.round(a.width);
+  }
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+
+  var dots = items.map(function (it, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'gallery-dot';
+    b.setAttribute('aria-label', 'Show photo ' + (i + 1) + ' of ' + items.length);
+    b.addEventListener('click', function () { hold(); track.scrollTo({ left: i * step(), behavior: 'smooth' }); });
+    if (dotsWrap) dotsWrap.appendChild(b);
+    return b;
+  });
+
+  var raf = 0;
+  function sync() {
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      raf = 0;
+      var i = Math.min(items.length - 1, Math.round(track.scrollLeft / (step() || 1)));
+      dots.forEach(function (d, n) { d.classList.toggle('active', n === i); });
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= maxScroll() - 2;
+    });
+  }
+  track.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+
+  // Auto-advance, with every reason to leave the visitor alone.
+  var timer = null, paused = false, onScreen = false, heldUntil = 0;
+  function hold() { heldUntil = Date.now() + 9000; }
+  function advance() {
+    if (paused || Date.now() < heldUntil) return;
+    if (track.scrollLeft >= maxScroll() - 2) track.scrollTo({ left: 0, behavior: 'smooth' });
+    else track.scrollBy({ left: step(), behavior: 'smooth' });
+  }
+  function start() { if (!timer && !reduceMotion) timer = setInterval(advance, 4500); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  root.addEventListener('mouseenter', function () { paused = true; });
+  root.addEventListener('mouseleave', function () { paused = false; });
+  root.addEventListener('focusin', function () { paused = true; });
+  root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) paused = false; });
+  root.addEventListener('pointerdown', hold);
+  root.addEventListener('wheel', hold, { passive: true });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else if (onScreen) start();
+  });
+  if (prev) prev.addEventListener('click', function () { hold(); track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  if (next) next.addEventListener('click', function () { hold(); track.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+  var videos = Array.prototype.slice.call(track.querySelectorAll('video'));
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen && !document.hidden) start(); else stop();
+    }, { threshold: 0.2 }).observe(root);
+    // Only the clips actually on screen cost the visitor any data.
+    var vo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var played = en.target.play();
+          if (played && played.catch) played.catch(function () {});
+        } else { en.target.pause(); }
+      });
+    }, { threshold: 0.4 });
+    videos.forEach(function (v) { vo.observe(v); });
+  } else {
+    onScreen = true;
+    start();
+    videos.forEach(function (v) { v.setAttribute('autoplay', ''); v.setAttribute('preload', 'metadata'); });
+  }
+  sync();
+}
+
 function setLang(lang) {
   var dict = content[lang] || content.en;
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -830,6 +948,7 @@ function setLang(lang) {
   if (d && wide) d.open = true;
   var dd = document.getElementById('drinks-details');
   if (dd && wide) dd.open = true;
+  initGallery();
 })();
 </script>
 </body>
