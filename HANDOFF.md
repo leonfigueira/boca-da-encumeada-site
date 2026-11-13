@@ -4,7 +4,7 @@
 
 This doc is mirrored as a Claude Project doc (`claude/boca-da-encumeada-website-masterplan.md`), and also as `~/Desktop/Projects/App-Handoffs/10-BOCA-DA-ENCUMEADA.md`.
 
-## 2026-11-13: espetada video, fireplace photos, family photo (prepared, awaiting Leon's go to deploy)
+## 2026-11-13: espetada video, fireplace photos, family photo (deployed 2026-11-13, version 906a214c, verified live on apex and www)
 
 Note: the October gallery work (scrolling gallery, poncha sunset and terrace mist clips, Cafe com vista photo) is in git history (commits up to 6fbd77d) but was never written up here.
 
