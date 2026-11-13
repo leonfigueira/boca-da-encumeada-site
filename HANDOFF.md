@@ -1,8 +1,19 @@
 # Boca da Encumeada Website — Master Plan / Handoff Doc
 
-**Status as of 2026-09-12: full printed food + drinks menus with prices added to the site, audited, deployed — see the 2026-09-12 section. Previous: 2026-08-28 (late): 🟢 LIVE at bocadaencumeada.com with the full site rehaul deployed (see "2026-08-28 rehaul" section below). Hours match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Mac folder + GitHub repo `github.com/leonfigueira/boca-da-encumeada-site` in sync with the live site. The full, authoritative version of this doc is the Claude Project doc `claude/boca-da-encumeada-website-masterplan.md`.**
+**Status as of 2026-11-13: new espetada video and photos added (see 2026-11-13 section). Previous, 2026-09-12: full printed food + drinks menus with prices added to the site, audited, deployed — see the 2026-09-12 section. Previous: 2026-08-28 (late): 🟢 LIVE at bocadaencumeada.com with the full site rehaul deployed (see "2026-08-28 rehaul" section below). Hours match the real Google Business listing (Mon–Sat 8:30–19:30, closed Sundays). Mac folder + GitHub repo `github.com/leonfigueira/boca-da-encumeada-site` in sync with the live site. The full, authoritative version of this doc is the Claude Project doc `claude/boca-da-encumeada-website-masterplan.md`.**
 
 This doc is mirrored as a Claude Project doc (`claude/boca-da-encumeada-website-masterplan.md`), and also as `~/Desktop/Projects/App-Handoffs/10-BOCA-DA-ENCUMEADA.md`.
+
+## 2026-11-13: espetada video, fireplace photos, family photo (prepared, awaiting Leon's go to deploy)
+
+Note: the October gallery work (scrolling gallery, poncha sunset and terrace mist clips, Cafe com vista photo) is in git history (commits up to 6fbd77d) but was never written up here.
+
+New media, from Leon's phone (originals in ~/Downloads: IMG_9632.MOV, IMG_9413/9438/9484.HEIC, plus a pasted espetada still):
+- `images/g-espetada.mp4` / `.webm` / `-poster.jpg`: espetada over the wood fire, 11 s loop, cropped 720x960 (3:4) from the portrait video (`crop=720:960:0:220`), no audio. FIRST item in the gallery, right under the menu.
+- `images/g-espetada-fire.jpg`: the still of the skewers over embers, 3:4 crop, gallery slot 5.
+- `images/g-fireplace.jpg` (IMG_9438, crop x=1700) and `images/g-dining-room.jpg` (IMG_9413, crop x=2349, right side with the open fire): 3:4 crops, 810x1080, gallery slots 8 and 12.
+- `images/family-bar.jpg` (IMG_9484, 2000 px wide): full-width photo under the About Us text, class `.about-photo`. Wide 2.09:1 on desktop, 3:2 crop on phones (`object-position: 45%`), checked that all five people stay in frame at 375 px.
+Gallery now has 14 items. Checked at 375 px and 1440 px, EN and PT, videos autoplay when in view, console clean.
 
 ## Where things stand right now
 
